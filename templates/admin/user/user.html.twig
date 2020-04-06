@@ -1,0 +1,22 @@
+{% extends 'admin/common/base.html.twig' %}
+
+{% block showUser %}
+    <h1>Fiche utilisateur</h1>
+
+    <main>
+            <div>
+                <h2>{{ user.firstName }}</h2>
+                <p>Email : {{ user.email }}</p>
+                <p>Téléphone : {{ user.phoneUser }}</p>
+                {% if user.photo %}
+                    <div>
+                        <img class="img-fluid" src="{{ asset('img/upload/' ~ user.photo) }}" alt="photo de profil">
+                    </div>
+                {% endif %}
+                <p>Ville : {{ user.cityUser }}</p>
+                <p>Commentaire : {{ user.commentUser }}</p>
+                <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
+            </div>
+    </main>
+
+{% endblock %}

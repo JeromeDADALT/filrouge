@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9652cec5-5d70-4e25-a7b3-c2703475f103" name="Default Changelist" comment="" />
+    <list default="true" id="9652cec5-5d70-4e25-a7b3-c2703475f103" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/common/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/users.html.twig" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +20,9 @@
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -126,6 +137,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1a7bmOEfnD9SlovljZK8YcD5IIp" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -133,6 +145,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
@@ -154,7 +167,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586089737588</updated>
-      <workItem from="1586089739141" duration="7859000" />
+      <workItem from="1586089739141" duration="19403000" />
     </task>
     <servers />
   </component>
@@ -162,6 +175,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586185130949">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1586185130949" />
     <state x="437" y="274" key="NewPhpClassDialog" timestamp="1586168132286">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
