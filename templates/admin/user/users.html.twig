@@ -1,0 +1,37 @@
+{% extends 'admin/common/base.html.twig' %}
+
+{% block userList %}
+    <h1>Liste des joueurs membres de la communauté</h1>
+    {#
+    <div class="search">
+        <form method="get" action="{{ path('admin_book_search') }}">
+            <p>Recherche par mot-clé</p>
+            <input type="text" name="word" placeholder="Entrez un mot à rechercher">
+            <button id="searchButton" type="submit">Rechercher</button>
+        </form>
+    </div>
+    #}
+
+    <main>
+        {% for user in users %}
+            <div>
+                <h2>{{ user.firstName }}</h2>
+                <p>Email : {{ user.email }}</p>
+                <p>Téléphone : {{ user.phoneUser }}</p>
+                <p>Photo : {{ user.photo }}</p>
+                <p>Ville : {{ user.cityUser }}</p>
+                <p>Commentaire : {{ user.commentUser }}</p>
+                <p>Enable : {{ user.enable }}</p>
+                {#
+                <div class="lien">
+                    <a href="{{ path('admin_update_book', {'id' : book.id}) }}">Modifier ce livre</a>
+                </div>
+                <div class="lien">
+                    <a href="{{ path('admin_delete_book', {'id' : book.id}) }}">Supprimer ce livre</a>
+                </div>
+                #}
+            </div>
+        {% endfor %}
+    </main>
+
+{% endblock %}

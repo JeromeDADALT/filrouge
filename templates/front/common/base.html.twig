@@ -1,0 +1,55 @@
+<!--je crée une base commune à toutes mes pages html twig que je vais pouvoir étendre dans tous tous les fihciers twig -->
+<!doctype html>
+<html lang=fr>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('src/js/app.js') }}"></script>
+</head>
+<body>
+
+<header>
+
+</header>
+{# je fais apparaitre les messages flash s'il y en a #}
+{% for message in app.flashes('success') %}
+    <div class="flashes">
+        {{ message }}
+    </div>
+{% endfor %}
+
+<!--je crée des blocks que je vais pouvoir inclure dans les fichiers twig pour isoler et pouvoir travailler sur des parties-->
+{% block body %}
+{% endblock %}
+
+
+
+
+{#
+<footer>
+    <nav>
+        <ul>
+            <li>
+                <h3>
+                    <a href="{{ path('admin_books_list') }}">Bibliothèque</a>
+                </h3>
+            </li>
+            <li>
+                <h3>
+                    <a href="{{ path('admin_authors_list') }}">Liste des auteurs</a>
+                </h3>
+            </li>
+        </ul>
+    </nav>
+</footer>
+#}
+</body>
+</html>
