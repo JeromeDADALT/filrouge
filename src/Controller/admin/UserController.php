@@ -151,10 +151,10 @@ class UserController extends AbstractController
     /**
      * @Route("/admin/user/search", name="admin_user_search")
      */
-    //je fais appel au Repository pour accéder à la méthode getByWordInFirstName spécialement créée pour cette méthode
-    public function searchByFirstName (UserRepository $userRepository, Request $request) {
+    //je fais appel au Repository pour accéder à la méthode getByWordInUser spécialement créée pour cette méthode
+    public function searchByUser (UserRepository $userRepository, Request $request) {
         $word = $request->query->get('word');
-        $users = $userRepository->getByWordInFirstName($word);
+        $users = $userRepository->getByWordInUser($word);
 
         return $this->render('admin/user/search.html.twig',
             [

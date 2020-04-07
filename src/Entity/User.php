@@ -63,6 +63,13 @@ class User implements UserInterface
      */
     private $enable;
 
+    //je crée un constructeur pour mettre par défaut un rôle utilisateur et le compte actif
+    public function __construct($enable = 1, $roles = ["ROLE_USER"])
+    {
+        $this->enable = $enable;
+        $this->roles = $roles;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

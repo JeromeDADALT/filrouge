@@ -1,15 +1,15 @@
 {% extends 'admin/common/base.html.twig' %}
 
-{% block userList %}
+{% block user %}
     <h1>Liste des joueurs membres de la communauté</h1>
     <div>
         <form method="get" action="{{ path('admin_user_search') }}">
-            <p>Recherche par prénom</p>
-            <input type="text" name="word" placeholder="Entrez un prénom à rechercher">
+            <p>Recherche par prénom ou email</p>
+            <input type="text" name="word" placeholder="Entrez un prénom ou un email">
             <button type="submit">Rechercher</button>
         </form>
     </div>
-    <p>Résultat(s) de la recherche sur le prénom : {{ word }}</p>
+    <p>Résultat(s) de la recherche sur le prénom ou l'email : {{ word }}</p>
 
     <main>
         <div>

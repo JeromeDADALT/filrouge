@@ -36,14 +36,15 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $this->_em->flush();
     }
 
-    //je crée une méthode pour rechercher un mot dans le champs prénom avec une variable $word en paramètre
-    public function getByWordInFirstName ($word)
+    //je crée une méthode pour rechercher un mot dans les champs prénom et email avec une variable $word en paramètre
+    public function getByWordInUser ($word)
     {
         //je fais appel au contructeur de requêtes dans la table a
         $queryBuilder = $this->createQueryBuilder('a');
         //je crée la requête pour qui va récupérer les utilisateurs qui ont le terme recherché
         $query = $queryBuilder->select('a')
             ->where('a.firstName LIKE :word')
+            ->orWhere('a.email LIKE :word')
             //j'ajoute une ligne pour sécuriser ma requête
             ->setParameter('word', '%'.$word.'%')
             ->getQuery();
