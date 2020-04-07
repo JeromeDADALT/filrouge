@@ -109,4 +109,19 @@ class StructureController extends AbstractController
         );
     }
 
+    /**
+     * @Route("/admin/structure/search", name="admin_structure_search")
+     */
+    //je fais appel au Repository pour accéder à la méthode getByWordInStructure spécialement créée pour cette méthode
+    public function searchByStructure (StructureRepository $structureRepository, Request $request) {
+        $word = $request->query->get('word');
+        $structures = $structureRepository->getByWordInStructure($word);
+
+        return $this->render('admin/structure/search.html.twig',
+            [
+                'structures' => $structures,
+                'word' => $word
+            ]);
+    }
+
 }

@@ -19,6 +19,23 @@ class StructureRepository extends ServiceEntityRepository
         parent::__construct($registry, Structure::class);
     }
 
+    //je crée une méthode pour rechercher un mot dans les champs nom et ville avec une variable $word en paramètre
+    public function getByWordInStructure ($word)
+    {
+        //je fais appel au contructeur de requêtes dans la table a
+        $queryBuilder = $this->createQueryBuilder('a');
+        //je crée la requête pour qui va récupérer les structures qui ont le terme recherché
+        $query = $queryBuilder->select('a')
+            ->where('a.nameStructure LIKE :word')
+            ->orWhere('a.cityStructure LIKE :word')
+            //j'ajoute une ligne pour sécuriser ma requête
+            ->setParameter('word', '%'.$word.'%')
+            ->getQuery();
+
+        $results = $query->getResult();
+
+        return $results;
+    }
     // /**
     //  * @return Structure[] Returns an array of Structure objects
     //  */

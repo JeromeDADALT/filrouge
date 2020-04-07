@@ -8,7 +8,9 @@
             <h2>{{ structure.nameStructure }}</h2>
             <p>Ville : {{ structure.cityStructure }}</p>
             <p>Téléphone : {{ structure.phoneStructure }}</p>
-            <p>Site web : {{ structure.linkStructure }}</p>
+            <p>Site web :
+                <a href="{{ structure.linkStructure }}">{{ structure.nameStructure }}</a>
+            </p>
             <p>Informations : {{ structure.commentStructure }}</p>
         </div>
     </main>

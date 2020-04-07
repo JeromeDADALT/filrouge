@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9652cec5-5d70-4e25-a7b3-c2703475f103" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/common/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/admin/StructureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/StructureController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/StructureRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StructureRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/structure.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/structure.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/structures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/structures.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586089737588</updated>
-      <workItem from="1586089739141" duration="28001000" />
+      <workItem from="1586089739141" duration="29133000" />
     </task>
     <servers />
   </component>
@@ -170,10 +174,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586253503144">
+    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1586259815631">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1586253503144" />
+    <state x="451" y="212" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.23.1440.877@0.23.1440.877" timestamp="1586259815631" />
     <state x="437" y="274" key="NewPhpClassDialog" timestamp="1586250791871">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
