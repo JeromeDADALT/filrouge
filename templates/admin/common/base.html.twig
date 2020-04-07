@@ -30,11 +30,17 @@
 {% block user %}
 {% endblock %}
 
+{% block structure %}
+{% endblock %}
+
 <footer>
     <nav>
         <ul>
             <li>
-                    <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
+                <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_structures_list') }}">Liste des structures</a>
             </li>
         </ul>
     </nav>

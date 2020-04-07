@@ -1,0 +1,34 @@
+{% extends 'admin/common/base.html.twig' %}
+
+{% block structure %}
+    <h1>Liste des structures de Padel en Gironde</h1>
+    {#
+    <div>
+        <form method="get" action="{{ path('admin_user_search') }}">
+            <p>Recherche par prénom ou email</p>
+            <input type="text" name="word" placeholder="Entrez un prénom ou un email">
+            <button type="submit">Rechercher</button>
+        </form>
+    </div>
+    #}
+    <main>
+        <div>
+            <a href="{{ path('admin_insert_structure') }}">Ajouter une structure</a>
+        </div>
+        {% for structure in structures %}
+            <div>
+                <h2>{{ structure.nameStructure }}</h2>
+                <p>Ville : {{ structure.cityStructure }}</p>
+            <div>
+                <a href="{{ path('admin_show_structure', {'id' : structure.id}) }}">Voir la fiche de la structure</a>
+            </div>
+            <div>
+                <a href="{{ path('admin_update_structure', {'id' : structure.id}) }}">Modifier cette structure</a>
+            </div>
+            <div>
+                <a href="{{ path('admin_delete_structure', {'id' : structure.id}) }}">Supprimer cette structure</a>
+            </div>
+            </div>
+        {% endfor %}
+    </main>
+{% endblock %}
