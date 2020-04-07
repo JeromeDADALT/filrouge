@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -63,11 +65,20 @@ class User implements UserInterface
      */
     private $enable;
 
+    //je crée une association ManyToMany entre User et Level en créant un attribut level dans l'entité User
+    //comme la relation est bi directionnelle, j'ajoute inversedBy pour faire une boucle
+    // qui va vers la cible Level et qui revient vers users
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Level", inversedBy="users")
+     */
+    private $level;
+
     //je crée un constructeur pour mettre par défaut un rôle utilisateur et le compte actif
     public function __construct($enable = 1, $roles = ["ROLE_USER"])
     {
         $this->enable = $enable;
         $this->roles = $roles;
+        $this->level = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -216,6 +227,34 @@ class User implements UserInterface
     public function setEnable(bool $enable): self
     {
         $this->enable = $enable;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Level[]
+     */
+    public function getLevel(): Collection
+    {
+        return $this->level;
+    }
+
+    //comme il s'agit d'une relation ManyToMany, il n'y a pas de setter mais un add et un remove
+    //car comme il peut y avoir plusieurs réponses, on manipule un array
+    public function addLevel(Level $level): self
+    {
+        if (!$this->level->contains($level)) {
+            $this->level[] = $level;
+        }
+
+        return $this;
+    }
+
+    public function removeLevel(Level $level): self
+    {
+        if ($this->level->contains($level)) {
+            $this->level->removeElement($level);
+        }
 
         return $this;
     }

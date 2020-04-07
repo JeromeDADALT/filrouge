@@ -16,6 +16,11 @@
                 <p>Ville : {{ user.cityUser }}</p>
                 <p>Commentaire : {{ user.commentUser }}</p>
                 <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
+                {#je rajoute le niveau du joueur situé dans l'entité Level en faisant une boucle
+                dans le champs level de la table User, pour chaque champs level, j'affiche le niveau "levelUser" de la table level#}
+                {% for level in user.level %}
+                    <p>Niveau : {{ level.levelUser }}</p>
+                {% endfor %}
             </div>
     </main>
 
