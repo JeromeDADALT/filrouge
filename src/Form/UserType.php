@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Day;
+use App\Entity\Hour;
 use App\Entity\Level;
+use App\Entity\Structure;
 use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -38,6 +41,27 @@ class UserType extends AbstractType
                     'class' => Level::class,
                     'choice_label' => 'levelUser',
                     //j'ajoute la possibilité de pouvoir cocher plusieurs options et d'avoir des cases à cocher
+                    'multiple' => true,
+                    'expanded' => true
+                ])
+            ->add('day', EntityType::class,
+                [
+                    'class' => Day::class,
+                    'choice_label' => 'dayUser',
+                    'multiple' => true,
+                    'expanded' => true
+                ])
+            ->add('hour', EntityType::class,
+                [
+                    'class' => Hour::class,
+                    'choice_label' => 'hourUser',
+                    'multiple' => true,
+                    'expanded' => true
+                ])
+            ->add('structure', EntityType::class,
+                [
+                    'class' => Structure::class,
+                    'choice_label' => 'nameStructure',
                     'multiple' => true,
                     'expanded' => true
                 ])

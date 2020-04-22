@@ -73,12 +73,31 @@ class User implements UserInterface
      */
     private $level;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Day", inversedBy="users")
+     */
+    private $day;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Hour", inversedBy="users")
+     */
+    private $hour;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Structure", inversedBy="users")
+     * @ORM\OrderBy({"nameStructure" = "ASC"})
+     */
+    private $structure;
+
     //je crée un constructeur pour mettre par défaut un rôle utilisateur et le compte actif
     public function __construct($enable = 1, $roles = ["ROLE_USER"])
     {
         $this->enable = $enable;
         $this->roles = $roles;
         $this->level = new ArrayCollection();
+        $this->day = new ArrayCollection();
+        $this->hour = new ArrayCollection();
+        $this->structure = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -114,7 +133,7 @@ class User implements UserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        // guarantee every user at least has ROLE_USER
+        //au moins chaque utilisateur créé aura le role ROLE_USER par défaut
         $roles[] = 'ROLE_USER';
 
         return array_unique($roles);
@@ -254,6 +273,84 @@ class User implements UserInterface
     {
         if ($this->level->contains($level)) {
             $this->level->removeElement($level);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Day[]
+     */
+    public function getDay(): Collection
+    {
+        return $this->day;
+    }
+
+    public function addDay(Day $day): self
+    {
+        if (!$this->day->contains($day)) {
+            $this->day[] = $day;
+        }
+
+        return $this;
+    }
+
+    public function removeDay(Day $day): self
+    {
+        if ($this->day->contains($day)) {
+            $this->day->removeElement($day);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Hour[]
+     */
+    public function getHour(): Collection
+    {
+        return $this->hour;
+    }
+
+    public function addHour(Hour $hour): self
+    {
+        if (!$this->hour->contains($hour)) {
+            $this->hour[] = $hour;
+        }
+
+        return $this;
+    }
+
+    public function removeHour(Hour $hour): self
+    {
+        if ($this->hour->contains($hour)) {
+            $this->hour->removeElement($hour);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Structure[]
+     */
+    public function getStructure(): Collection
+    {
+        return $this->structure;
+    }
+
+    public function addStructure(Structure $structure): self
+    {
+        if (!$this->structure->contains($structure)) {
+            $this->structure[] = $structure;
+        }
+
+        return $this;
+    }
+
+    public function removeStructure(Structure $structure): self
+    {
+        if ($this->structure->contains($structure)) {
+            $this->structure->removeElement($structure);
         }
 
         return $this;

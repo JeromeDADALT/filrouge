@@ -21,6 +21,15 @@
                 {% for level in user.level %}
                     <p>Niveau : {{ level.levelUser }}</p>
                 {% endfor %}
+                {% for day in user.day %}
+                    <p>Jour : {{ day.dayUser }}</p>
+                {% endfor %}
+                {% for hour in user.hour %}
+                    <p>Heure : {{ hour.hourUser }}</p>
+                {% endfor %}
+                {% for structure in user.structure %}
+                    <p>Structure : {{ structure.nameStructure }}</p>
+                {% endfor %}
             </div>
     </main>
 

@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9652cec5-5d70-4e25-a7b3-c2703475f103" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Day.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Day.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Hour.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Hour.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Level.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Level.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Structure.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Structure.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/user/user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/user.html.twig" afterDir="false" />
@@ -13,7 +16,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -165,7 +168,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1586089737588</updated>
-      <workItem from="1586089739141" duration="35126000" />
+      <workItem from="1586089739141" duration="35461000" />
+      <workItem from="1586624200039" duration="7733000" />
     </task>
     <servers />
   </component>
@@ -181,5 +185,9 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="437" y="274" key="NewPhpClassDialog/0.23.1440.877@0.23.1440.877" timestamp="1586250791871" />
+    <state x="406" y="283" key="com.intellij.ide.util.TipDialog" timestamp="1586630394851">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="406" y="283" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1586630394851" />
   </component>
 </project>

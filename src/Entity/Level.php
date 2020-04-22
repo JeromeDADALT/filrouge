@@ -27,7 +27,7 @@ class Level
     //comme la relation est bi directionnelle, j'ajoute mappdeBy pour faire une boucle
     // qui va vers la cible User et qui revient vers level
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="level")
+     * @ORM\ManyToMany(targetEntity="App\Entity\User", mappedBy="level", cascade={"remove"})
      */
     private $users;
 
