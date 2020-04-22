@@ -7,6 +7,7 @@ use App\Entity\Hour;
 use App\Entity\Level;
 use App\Entity\Structure;
 use App\Entity\User;
+use App\Repository\StructureRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -63,7 +64,12 @@ class UserType extends AbstractType
                     'class' => Structure::class,
                     'choice_label' => 'nameStructure',
                     'multiple' => true,
-                    'expanded' => true
+                    'expanded' => true,
+                    //j'ajoute une option pour passer une requête qui trie par ordre alphabétique les noms des structures
+                    'query_builder' => function (StructureRepository $structureRepository) {
+                        return $structureRepository->createQueryBuilder('u')
+                            ->orderBy('u.nameStructure', 'ASC');
+                    },
                 ])
             ->add('submit', SubmitType::class)
         ;
