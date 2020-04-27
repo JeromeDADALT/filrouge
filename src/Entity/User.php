@@ -6,9 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ * @UniqueEntity("email", message = "L'email saisi est déjà utilisé.")
  */
 class User implements UserInterface
 {
@@ -21,6 +24,12 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 100,
+     *      maxMessage = "L'email doit comporter au maximum {{ limit }} caractères"
+     * )
+     * @Assert\Email(message = "L'email saisi n'est pas valide.")
      */
     private $email;
 
@@ -32,31 +41,62 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      min = 6,
+     *      minMessage = "Le mot de passe doit comporter au minimum {{ limit }} caractères"
+     * )
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 100,
+     *      maxMessage = "Le prénom doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Assert\Length(
+     *      max = 100,
+     *      maxMessage = "Le nom de l'image doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $photo;
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/[^0-9-+ *]+/",
+     *     match=false,
+     *     message="Le numéro de téléphone doit être composé de chiffres, d'espaces, d'étoiles, de tirets ou de signes +"
+     * )
+     * @Assert\Length(
+     *      max = 20,
+     *      maxMessage = "Le numéro de téléphone doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $phoneUser;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Assert\Length(
+     *      max = 100,
+     *      maxMessage = "Le nom de la ville doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $cityUser;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(
+     *      max = 500,
+     *      maxMessage = "Votre commentaire doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $commentUser;
 

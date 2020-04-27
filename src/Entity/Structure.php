@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\StructureRepository")
@@ -20,26 +21,56 @@ class Structure
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 100,
+     *      maxMessage = "Le nom de la structure doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $nameStructure;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *      max = 100,
+     *      maxMessage = "La ville de la structure doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $cityStructure;
 
     /**
      * @ORM\Column(type="string", length=20, nullable=true)
+     * @Assert\Regex(
+     *     pattern="/[^0-9-+ *]+/",
+     *     match=false,
+     *     message="Le numéro de téléphone doit être composé de chiffres, d'espaces, d'étoiles, de tirets ou de signes +"
+     * )
+     * @Assert\Length(
+     *      max = 20,
+     *      maxMessage = "Le numéro de téléphone doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $phoneStructure;
 
     /**
      * @ORM\Column(type="string", length=100, nullable=true)
+     * @Assert\Length(
+     *      max = 100,
+     *      maxMessage = "L'URL de la structure doit comporter au maximum {{ limit }} caractères"
+     * )
+     * @Assert\Url(
+     *    message = "L'url saisie n'est pas valide."
+     * )
      */
     private $linkStructure;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\Length(
+     *      max = 500,
+     *      maxMessage = "Votre commentaire doit comporter au maximum {{ limit }} caractères"
+     * )
      */
     private $commentStructure;
 

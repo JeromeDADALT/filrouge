@@ -69,7 +69,7 @@ class UserType extends AbstractType
                     'query_builder' => function (StructureRepository $structureRepository) {
                         return $structureRepository->createQueryBuilder('u')
                             ->orderBy('u.nameStructure', 'ASC');
-                    },
+                    }
                 ])
             ->add('submit', SubmitType::class)
         ;
