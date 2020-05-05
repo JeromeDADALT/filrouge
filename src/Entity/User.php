@@ -26,7 +26,7 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=180, unique=true)
      * @Assert\NotBlank
      * @Assert\Length(
-     *      max = 100,
+     *      max = 180,
      *      maxMessage = "L'email doit comporter au maximum {{ limit }} caractères"
      * )
      * @Assert\Email(message = "L'email saisi n'est pas valide.")

@@ -9,12 +9,17 @@
             <button type="submit">Rechercher</button>
         </form>
     </div>
+    <div>
+        <p>Filtrer par lieu, jour, heure, niveau</p>
+        <a href="{{ path('admin_user_filter') }}">Accéder aux filtres</a>
+    </div>
 
     <main>
         <div>
             <a href="{{ path('admin_insert_user') }}">Ajouter un utilisateur</a>
         </div>
-        {% for user in users %}
+        {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
+        {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
             <div>
                 <h2>{{ user.firstName }}</h2>
                 <p>Email : {{ user.email }}</p>

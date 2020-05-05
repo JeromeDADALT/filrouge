@@ -1,0 +1,24 @@
+{% extends 'admin/common/base.html.twig' %}
+
+{% block user %}
+<h1>Recherche des joueurs membres</h1>
+<div>
+    <p>Filtrer par lieu, jour, heure, niveau :</p>
+    {{ form(formFilterUser) }}
+</div>
+
+<main>
+    {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique
+    {% for user in users %}
+        <div>
+            <h2>{{ user.firstName }}</h2>
+            <p>Email : {{ user.email }}</p>
+            <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
+            <div>
+                <a href="{{ path('admin_show_user', {'id' : user.id}) }}">Voir la fiche utilisateur</a>
+            </div>
+        </div>
+    {% endfor %}#}
+</main>
+
+{% endblock %}
