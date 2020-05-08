@@ -11,6 +11,8 @@ use App\Repository\StructureRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,7 +24,16 @@ class UserType extends AbstractType
         $builder
             ->add('email')
             //->add('roles')
-            ->add('password')
+            //j'ajoute des options sur le mot de passe pour activer la confirmation et le message d'erreur
+            ->add('password', RepeatedType::class,
+                [
+                    'type' => PasswordType::class,
+                    'invalid_message' => 'Les mots de passe ne correspondent pas.',
+                    //'options' => ['attr' => ['class' => 'password-field']],
+                    'required' => true,
+                    'first_options'  => ['label' => 'Mot de passe'],
+                    'second_options' => ['label' => 'Confirmer le mot de passe']
+                ])
             ->add('firstName')
             ->add('photo', FileType::class,
                 [
@@ -40,6 +51,7 @@ class UserType extends AbstractType
             ->add('level', EntityType::class,
                 [
                     'class' => Level::class,
+                    'label' => 'Niveau',
                     'choice_label' => 'levelUser',
                     //j'ajoute la possibilité de pouvoir cocher plusieurs options et d'avoir des cases à cocher
                     'multiple' => true,
@@ -48,6 +60,7 @@ class UserType extends AbstractType
             ->add('day', EntityType::class,
                 [
                     'class' => Day::class,
+                    'label' => 'Jour',
                     'choice_label' => 'dayUser',
                     'multiple' => true,
                     'expanded' => true
@@ -55,6 +68,7 @@ class UserType extends AbstractType
             ->add('hour', EntityType::class,
                 [
                     'class' => Hour::class,
+                    'label' => 'Heure',
                     'choice_label' => 'hourUser',
                     'multiple' => true,
                     'expanded' => true
@@ -62,6 +76,7 @@ class UserType extends AbstractType
             ->add('structure', EntityType::class,
                 [
                     'class' => Structure::class,
+                    'label' => 'Lieu',
                     'choice_label' => 'nameStructure',
                     'multiple' => true,
                     'expanded' => true,

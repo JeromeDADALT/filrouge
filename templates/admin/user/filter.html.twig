@@ -8,7 +8,7 @@
 </div>
 
 <main>
-    {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique
+    {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
     {% for user in users %}
         <div>
             <h2>{{ user.firstName }}</h2>
@@ -18,7 +18,7 @@
                 <a href="{{ path('admin_show_user', {'id' : user.id}) }}">Voir la fiche utilisateur</a>
             </div>
         </div>
-    {% endfor %}#}
+    {% endfor %}
 </main>
 
 {% endblock %}

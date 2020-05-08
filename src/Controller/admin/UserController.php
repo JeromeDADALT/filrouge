@@ -3,6 +3,7 @@
 
 namespace App\Controller\admin;
 
+use App\Data\SearchData;
 use App\Entity\Day;
 use App\Entity\Hour;
 use App\Entity\Level;
@@ -10,6 +11,7 @@ use App\Entity\Structure;
 use App\Entity\User;
 use App\Form\FilterType;
 use App\Form\UserType;
+use App\Repository\LevelRepository;
 use App\Repository\StructureRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -174,60 +176,19 @@ class UserController extends AbstractController
      * @Route("/admin/user/filter", name="admin_user_filter")
      */
     public function searchByFilter (UserRepository $userRepository, Request $request) {
-        //$defaultData = ['level' => 'Pas de préférence'];
-        //$defaultData = ['level' => 'Pas de préférence', 'day' => 'Pas de préférence', 'hour' => 'Pas de préférence', 'structure' => 'Pas de préférence'];
-        $formFilterUser = $this->createFormBuilder()
-            ->add('level', EntityType::class,
-                [
-                    'class' => Level::class,
-                    'choice_label' => 'levelUser',
-                    'multiple' => true,
-                    'expanded' => true
-                ])
-            ->add('day', EntityType::class,
-                [
-                    'class' => Day::class,
-                    'choice_label' => 'dayUser',
-                    'multiple' => true,
-                    'expanded' => true
-                ])
-            ->add('hour', EntityType::class,
-                [
-                    'class' => Hour::class,
-                    'choice_label' => 'hourUser',
-                    'multiple' => true,
-                    'expanded' => true
-                ])
-            ->add('structure', EntityType::class,
-                [
-                    'class' => Structure::class,
-                    'choice_label' => 'nameStructure',
-                    'multiple' => true,
-                    'expanded' => true,
-                    //j'ajoute une option pour passer une requête qui trie par ordre alphabétique les noms des structures
-                    'query_builder' => function (StructureRepository $structureRepository) {
-                        return $structureRepository->createQueryBuilder('u')
-                            ->orderBy('u.nameStructure', 'ASC');
-                    }
-                ])
-            ->add('submit', SubmitType::class)
-            ->getForm();
+        //je crée une nouvelle classe vide pour créer un formulaire de recherche par défaut
+        $data = new SearchData();
+        //je crée un formulaire avec en paramètres le gabarit de formulaire FilterType et ma variable créée
+        $formFilterUser = $this->createForm(FilterType::class, $data);
+        //handelrequest permet de dire au formulaire de récupérer les données du GET
         $formFilterUser->handleRequest($request);
-        if ($formFilterUser->isSubmitted() && $formFilterUser->isValid()) {
-            //$data est un tableau avec les clés "level", "day", "hour" and "structure"
-            //$data = $formFilterUser->getData();
-            //$searchLevel = $data['level'];
-            //$searchLevel = $request->query->get('level');
-            $searchLevel = $formFilterUser->get('level')->getData();
-            $users  = $userRepository->findBy(['level' => $searchLevel]);
-            //$this->redirectToRoute('admin_user_filter', $users);
-        }
-        //$users  = $userRepository->findBy(['level' => $searchLevel, 'day' => $searchDay, 'hour' => $searchHour, 'structure' => $searchStructure]);
+        //je fais appel à la méthode spécialement créée du Repository pour effectuer la recherche en fonction des critères
+        $users = $userRepository->searchByFilterInUser($data);
 
         return $this->render('admin/user/filter.html.twig',
             [
                 'formFilterUser' => $formFilterUser->createView(),
-                //'users' => $users
+                'users' => $users
             ]);
     }
 

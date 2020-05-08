@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Data\SearchData;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
@@ -47,8 +48,41 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
             ->orWhere('a.email LIKE :word')
             //j'ajoute une ligne pour sécuriser ma requête
             ->setParameter('word', '%'.$word.'%')
+            ->orderBy('a.firstName', 'ASC')
             ->getQuery();
 
+        $results = $query->getResult();
+
+        return $results;
+    }
+
+    //je crée une méthode pour rechercher les joueurs en fonction des critères de niveau, jour, heure et lieu
+    public function searchByFilterInUser (SearchData $search)
+    {
+        $queryBuilder = $this->createQueryBuilder('u');
+        $query = $queryBuilder
+            //je sélectionne parmi les entités level, day, hour, structure et users
+            ->select('l', 'd', 'h', 's', 'u')
+            //en faisant un inner join entre users et level
+            ->join('u.level', 'l')
+            //je filtre par les niveaux en récupérant les id des niveaux cochés
+            ->orWhere('l.id IN (:level)')
+            ->setParameter('level', $search->level)
+            ->join('u.day', 'd')
+            //je filtre par les jours en récupérant les id des jours cochés
+            ->orWhere('d.id IN (:day)')
+            ->setParameter('day', $search->day)
+            ->join('u.hour', 'h')
+            //je filtre par les heures en récupérant les id des heures cochées
+            ->orWhere('h.id IN (:hour)')
+            ->setParameter('hour', $search->hour)
+            ->join('u.structure', 's')
+            //je filtre par les lieux en récupérant les id des lieux cochés
+            ->orWhere('s.id IN (:structure)')
+            ->setParameter('structure', $search->structure)
+            //j'affiche les résultats par ordre alphabétique des joueurs
+            ->orderBy('u.firstName', 'ASC')
+            ->getQuery();
         $results = $query->getResult();
 
         return $results;

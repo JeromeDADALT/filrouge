@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Data\SearchData;
 use App\Entity\Day;
 use App\Entity\Hour;
 use App\Entity\Level;
@@ -24,6 +25,7 @@ class FilterType extends AbstractType
             ->add('level', EntityType::class,
                 [
                     'class' => Level::class,
+                    'label' => 'Niveau',
                     'choice_label' => 'levelUser',
                     //j'ajoute la possibilité de pouvoir cocher plusieurs options et d'avoir des cases à cocher
                     'multiple' => true,
@@ -62,9 +64,12 @@ class FilterType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            //'data_class' => User::class,
-            //'method' => 'GET',
-            //'csrf_protection' => false
+            //je relie mon formulaire de recherche à ma classe de recherche de données SearchData
+            'data_class' => SearchData::class,
+            //je passe ma méthode en GET car je n'ai pas besoin de la sécurité d'un POST et je dois pouvoir enregistrer une recherche
+            'method' => 'GET',
+            //je désctive la validation du formulaire car je n'en ai pas besoin sur ce type de recherche
+            'csrf_protection' => false
         ]);
     }
 }
