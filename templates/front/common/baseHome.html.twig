@@ -23,6 +23,12 @@
             <li>
                 <a href="{{ path('home') }}">Accueil</a>
             </li>
+            <!--j'ajoute une condition pour faire apparaitre le lien vers le back office (uniquement en admin) -->
+            {% if is_granted('ROLE_ADMIN') %}
+            <li>
+                <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
+            </li>
+            {% endif %}
             <li>
                 <a href="{{ path('front_users_list') }}">Liste des joueurs</a>
             </li>
@@ -34,23 +40,23 @@
             </li>
             <!--j'ajoute une condition pour faire apparaitre Connexion et Inscription si l'utilisateur n'est pas connecté-->
             {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
-                <li>
-                    <a href="{{ path('app_login') }}">Connexion</a>
-                </li>
-                <li>
-                    <a href="{{ path('front_insert_user') }}">Inscription</a>
-                </li>
+            <li>
+                <a href="{{ path('app_login') }}">Connexion</a>
+            </li>
+            <li>
+                <a href="{{ path('front_insert_user') }}">Inscription</a>
+            </li>
             {% endif %}
             <!--j'ajoute une condition pour faire apparaitre Modification et Déconnexion si l'utilisateur est connecté-->
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                {#
-                <li>
-                    <a href="{{ path('') }}">Modifier mon compte</a>
-                </li>
-                #}
-                <li>
-                    <a href="{{ path('app_logout') }}">Déconnexion</a>
-                </li>
+            {#
+            <li>
+                <a href="{{ path('') }}">Modifier mon compte</a>
+            </li>
+            #}
+            <li>
+                <a href="{{ path('app_logout') }}">Déconnexion</a>
+            </li>
             {% endif %}
         </ul>
     </nav>

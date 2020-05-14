@@ -1,5 +1,7 @@
 {% extends 'admin/common/base.html.twig' %}
 
+{% block title %}Fiche structure{% endblock %}
+
 {% block structure %}
     <h1>Fiche structure</h1>
 
@@ -9,9 +11,15 @@
             <p>Ville : {{ structure.cityStructure }}</p>
             <p>Téléphone : {{ structure.phoneStructure }}</p>
             <p>Site web :
-                <a href="{{ structure.linkStructure }}">{{ structure.nameStructure }}</a>
+                <a href="{{ structure.linkStructure }}" target = "_blank">{{ structure.nameStructure }}</a>
             </p>
             <p>Informations : {{ structure.commentStructure }}</p>
+            <div>
+                <a href="{{ path('admin_update_structure', {'id' : structure.id}) }}">Modifier cette structure</a>
+            </div>
+            <div>
+                <a href="{{ path('admin_delete_structure', {'id' : structure.id}) }}">Supprimer cette structure</a>
+            </div>
         </div>
     </main>
 

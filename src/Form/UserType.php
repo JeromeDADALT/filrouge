@@ -31,8 +31,8 @@ class UserType extends AbstractType
                     'invalid_message' => 'Les mots de passe ne correspondent pas.',
                     //'options' => ['attr' => ['class' => 'password-field']],
                     'required' => true,
-                    'first_options'  => ['label' => 'Mot de passe'],
-                    'second_options' => ['label' => 'Confirmer le mot de passe']
+                    'first_options'  => ['label' => 'Mot de passe*'],
+                    'second_options' => ['label' => 'Confirmer le mot de passe*']
                 ])
             ->add('firstName')
             ->add('photo', FileType::class,
@@ -86,7 +86,7 @@ class UserType extends AbstractType
                             ->orderBy('u.nameStructure', 'ASC');
                     }
                 ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, ['label' => 'Enregistrer'])
         ;
     }
 

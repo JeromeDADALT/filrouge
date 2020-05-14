@@ -34,6 +34,7 @@ class FilterType extends AbstractType
             ->add('day', EntityType::class,
                 [
                     'class' => Day::class,
+                    'label' => 'Jour',
                     'choice_label' => 'dayUser',
                     'multiple' => true,
                     'expanded' => true
@@ -41,6 +42,7 @@ class FilterType extends AbstractType
             ->add('hour', EntityType::class,
                 [
                     'class' => Hour::class,
+                    'label' => 'Heure',
                     'choice_label' => 'hourUser',
                     'multiple' => true,
                     'expanded' => true
@@ -48,6 +50,7 @@ class FilterType extends AbstractType
             ->add('structure', EntityType::class,
                 [
                     'class' => Structure::class,
+                    'label' => 'Lieu',
                     'choice_label' => 'nameStructure',
                     'multiple' => true,
                     'expanded' => true,
@@ -57,7 +60,7 @@ class FilterType extends AbstractType
                             ->orderBy('u.nameStructure', 'ASC');
                     }
                 ])
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, ['label' => 'Rechercher'])
         ;
     }
 
@@ -68,7 +71,7 @@ class FilterType extends AbstractType
             'data_class' => SearchData::class,
             //je passe ma méthode en GET car je n'ai pas besoin de la sécurité d'un POST et je dois pouvoir enregistrer une recherche
             'method' => 'GET',
-            //je désctive la validation du formulaire car je n'en ai pas besoin sur ce type de recherche
+            //je désactive la validation du formulaire car je n'en ai pas besoin sur ce type de recherche
             'csrf_protection' => false
         ]);
     }

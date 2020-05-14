@@ -18,7 +18,7 @@ class StructureType extends AbstractType
             ->add('phoneStructure')
             ->add('linkStructure')
             ->add('commentStructure')
-            ->add('submit', SubmitType::class)
+            ->add('submit', SubmitType::class, ['label' => 'Enregistrer'])
         ;
     }
 

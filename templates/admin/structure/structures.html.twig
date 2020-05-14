@@ -1,5 +1,7 @@
 {% extends 'admin/common/base.html.twig' %}
 
+{% block title %}Les structures{% endblock %}
+
 {% block structure %}
     <h1>Liste des structures de Padel en Gironde</h1>
     <div>
@@ -11,17 +13,16 @@
     </div>
 
     <main>
-        <div>
+        <h2>
             <a href="{{ path('admin_insert_structure') }}">Ajouter une structure</a>
-        </div>
+        </h2>
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
         {% for structure in structures|sort((a, b) => a.nameStructure <=> b.nameStructure) %}
             <div>
-                <h2>{{ structure.nameStructure }}</h2>
+                <h2>
+                    <a href="{{ path ('admin_show_structure', {'id' : structure.id }) }}">{{ structure.nameStructure }}</a>
+                </h2>
                 <p>Ville : {{ structure.cityStructure }}</p>
-            <div>
-                <a href="{{ path('admin_show_structure', {'id' : structure.id}) }}">Voir la fiche de la structure</a>
-            </div>
             <div>
                 <a href="{{ path('admin_update_structure', {'id' : structure.id}) }}">Modifier cette structure</a>
             </div>

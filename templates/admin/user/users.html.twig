@@ -1,33 +1,33 @@
 {% extends 'admin/common/base.html.twig' %}
 
-{% block user %}
-    <h1>Liste des joueurs membres de la communauté</h1>
-    <div>
-        <form method="get" action="{{ path('admin_user_search') }}">
-            <p>Recherche par prénom ou email</p>
-            <input type="text" name="word" placeholder="Entrez un prénom ou un email">
-            <button type="submit">Rechercher</button>
-        </form>
-    </div>
-    <div>
-        <p>Filtrer par lieu, jour, heure, niveau</p>
-        <a href="{{ path('admin_user_filter') }}">Accéder aux filtres</a>
-        {#{% include 'admin/user/filter.html.twig' with {form: formFilterUser} only %}#}
-    </div>
+{% block title %}Les joueurs{% endblock %}
 
+{% block user %}
     <main>
-        <div>
+        <h1>Liste des utilisateurs inscrits</h1>
+        <h2>
             <a href="{{ path('admin_insert_user') }}">Ajouter un utilisateur</a>
+        </h2>
+        <div>
+            <form method="get" action="{{ path('admin_user_search') }}">
+                <h4>Recherche par prénom ou email</h4>
+                <input type="text" name="word" placeholder="Entrez un prénom ou un email">
+                <button type="submit">Rechercher</button>
+            </form>
         </div>
+        <div>
+            <h4>Filtrer les joueurs par lieu, jour, heure, niveau</h4>
+            <a href="{{ path('admin_user_filter') }}">Recherche multi critères</a>
+        </div>
+
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
             <div>
-                <h2>{{ user.firstName }}</h2>
+                <h3>
+                    <a href="{{ path ('admin_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
+                </h3>
                 <p>Email : {{ user.email }}</p>
                 <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
-                <div>
-                    <a href="{{ path('admin_show_user', {'id' : user.id}) }}">Voir la fiche utilisateur</a>
-                </div>
                 <div>
                     <a href="{{ path('admin_update_user', {'id' : user.id}) }}">Modifier cet utilisateur</a>
                 </div>

@@ -7,6 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %} {% endblock %}</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/faviconpadel.png') }}" />
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="{{ asset('src/js/app.js') }}"></script>
@@ -14,7 +15,31 @@
 <body>
 
 <header>
-
+    <nav>
+        <ul>
+            <li>
+                <a href="{{ path('home') }}">Accueil front office</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_user_filter') }}">Recherche de joueurs</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_structures_list') }}">Liste des structures</a>
+            </li>
+            <!--j'ajoute une condition pour faire apparaitre Déconnexion si l'utilisateur est connecté-->
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li>
+                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
 </header>
 {# je fais apparaitre les messages flash s'il y en a #}
 {% for message in app.flashes('success') %}
@@ -37,7 +62,16 @@
     <nav>
         <ul>
             <li>
+                <a href="{{ path('home') }}">Accueil front office</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
+            </li>
+            <li>
                 <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_user_filter') }}">Recherche de joueurs</a>
             </li>
             <li>
                 <a href="{{ path('admin_structures_list') }}">Liste des structures</a>

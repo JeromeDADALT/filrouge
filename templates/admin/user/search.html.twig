@@ -1,5 +1,7 @@
 {% extends 'admin/common/base.html.twig' %}
 
+{% block title %}Recherche mot clé{% endblock %}
+
 {% block user %}
     <h1>Liste des joueurs membres de la communauté</h1>
     <div>
@@ -9,20 +11,16 @@
             <button type="submit">Rechercher</button>
         </form>
     </div>
-    <p>Résultat(s) de la recherche sur le prénom ou l'email : {{ word }}</p>
+    <h2>Résultat(s) de la recherche sur le prénom ou l'email : {{ word }}</h2>
 
     <main>
-        <div>
-            <a href="{{ path('admin_insert_user') }}">Ajouter un utilisateur</a>
-        </div>
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
             <div>
-                <h2>{{ user.firstName }}</h2>
+                <h3>
+                    <a href="{{ path ('admin_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
+                </h3>
                 <p>Email : {{ user.email }}</p>
                 <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
-                <div>
-                    <a href="{{ path('admin_show_user', {'id' : user.id}) }}">Voir la fiche utilisateur</a>
-                </div>
                 <div>
                     <a href="{{ path('admin_update_user', {'id' : user.id}) }}">Modifier cet utilisateur</a>
                 </div>
@@ -30,7 +28,12 @@
                     <a href="{{ path('admin_delete_user', {'id' : user.id}) }}">Supprimer cet utilisateur</a>
                 </div>
             </div>
+        {% else %}
+            <p>Il n'y a pas de résultat pour cette recherche</p>
         {% endfor %}
+        <div>
+            <a href="{{ path('admin_insert_user') }}">Ajouter un utilisateur</a>
+        </div>
     </main>
 
 {% endblock %}
