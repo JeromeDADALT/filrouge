@@ -7,7 +7,7 @@
         <h1>Liste des joueurs membres de la communauté</h1>
         <div>
             <h3>Filtrer les joueurs par prénom, email, lieu, jour, heure, niveau</h3>
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') and '{{ user.enable }}' == true %}
                 <a href="{{ path('front_user_filter') }}">Recherche multi critères</a>
             {% else %}
                 <p>Identifiez-vous pour accéder à la recherche multi-critères.</p>

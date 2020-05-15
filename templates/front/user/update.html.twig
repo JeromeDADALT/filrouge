@@ -1,9 +1,9 @@
 {% extends 'front/common/base.html.twig' %}
 
-{% block title %}Création de compte{% endblock %}
+{% block title %}Modification{% endblock %}
 
 {% block user %}
-    <h1>Formulaire d'inscription :</h1>
+    <h1>Modification de compte :</h1>
     {# pour afficher le formulaire j'utilise form_start() et form_end() en passant la variable qui contient le formulaire #}
     {{ form_start(formUser) }}
         {{ form_row(formUser.firstName, {'label': 'Prénom*'}) }}

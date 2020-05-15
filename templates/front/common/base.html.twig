@@ -43,11 +43,10 @@
             {% endif %}
             <!--j'ajoute une condition pour faire apparaitre Modification et Déconnexion si l'utilisateur est connecté-->
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                {#
+                <!--pour modifier le compte de l'utilisateur connecté, je récupère son id par app.user.id -->
                 <li>
-                    <a href="{{ path('') }}">Modifier mon compte</a>
+                    <a href="{{ path('front_update_user', {'id' : app.user.id}) }}">Modifier mon compte</a>
                 </li>
-                #}
                 <li>
                     <a href="{{ path('app_logout') }}">Déconnexion</a>
                 </li>

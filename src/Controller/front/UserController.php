@@ -102,7 +102,7 @@ class UserController extends AbstractController
                                 SluggerInterface $slugger,
                                 UserRepository $userRepository,
                                 $id) {
-        //je récupère un utilisateur existant via son id
+        //je récupère l'utilisateur connecté via son id
         $user = $userRepository->find($id);
         //je crée une un formulaire en faisant appel au gabarit de formulaire UserType et je le mets dans une variable
         //je rajoute la variable $user en paramètre de createForm pour relier l'instance avec le formulaire
