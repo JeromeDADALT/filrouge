@@ -20,7 +20,7 @@
     {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
     {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
         <div>
-            <h3>{{ user.firstName }}</h3>
+            <h3 class="firstName">{{ user.firstName }}</h3>
             <p>Email : {{ user.email }}</p>
             <p>Téléphone : {{ user.phoneUser }}</p>
             {% if user.photo %}

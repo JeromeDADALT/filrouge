@@ -20,10 +20,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 class UserController extends AbstractController
 {
+    //je définis une variable pour le mot de passe à encoder
+    private $passwordEncoder;
+    //je passe ma variable dans le constructeur
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     /**
      * @Route("front/users/list", name="front_users_list")
      */
@@ -61,7 +70,10 @@ class UserController extends AbstractController
         $formUser->handleRequest($request);
         //je rajoute une condition pour vérifier si le formulaire a été envoyé et est valide vis à vis des contraintes de la bdd
         if ($formUser->isSubmitted() && $formUser->isValid()) {
-
+            //j'encode la mot de passe récupéré avec encodePassword()
+            $user->setPassword(
+                $this->passwordEncoder->encodePassword( $user, $user->getPassword() )
+            );
             //je déclare une variable qui récupère les données de mon champs 'photo' du formulaire
             $photo = $formUser->get('photo')->getData();
             //je mets une condition if pour faire apparaitre l'image que quand il y a une image upoladée

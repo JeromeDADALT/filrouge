@@ -17,12 +17,12 @@
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
             <div>
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') and '{{ user.enable }}' == true %}
                     <h2>
-                        <a href="{{ path ('front_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
+                        <a class="firstName" href="{{ path ('front_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
                     </h2>
                 {% else %}
-                    <h2>{{  user.firstName }}</h2>
+                    <h2>{{ user.firstName }}</h2>
                     <p>(Accés à la fiche utilisateur réservé aux membres)</p>
                 {% endif %}
                 {% if user.photo %}

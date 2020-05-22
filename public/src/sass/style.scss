@@ -1,0 +1,41 @@
+/* j'importe les polices du fichier partiel @import ‘_fonts.scss’;*/
+@import "fonts";
+@import "default";
+@import "responsive";
+@import "var";
+
+* {
+  margin: 0;
+}
+
+.headerHome {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../img/imageAccueil.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+section, footer, nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav div, nav div a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menuHome {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
