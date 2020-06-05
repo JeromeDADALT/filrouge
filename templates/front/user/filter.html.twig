@@ -3,51 +3,91 @@
 {% block title %}Recherche multi-critères{% endblock %}
 
 {% block user %}
-<h1>Recherche des joueurs membres</h1>
-    <div>
-        <form method="get" action="{{ path('front_user_search') }}">
-            <h2>Recherche par prénom ou email</h2>
-            <input type="text" name="word" placeholder="Entrez un prénom ou un email">
-            <button type="submit">Rechercher</button>
-        </form>
-    </div>
-<div>
-    <h2>Filtrer par lieu, jour, heure, niveau :</h2>
-    {{ form(formFilterUser) }}
-</div>
-
-<main>
-    {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
-    {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
-        <div>
-            <h3 class="firstName">{{ user.firstName }}</h3>
-            <p>Email : {{ user.email }}</p>
-            <p>Téléphone : {{ user.phoneUser }}</p>
-            {% if user.photo %}
-                <div>
-                    <img class="img-fluid" src="{{ asset('img/upload/' ~ user.photo) }}" alt="photo de profil">
+    <main class="p3">
+        <h1 class="colorLB">Recherche de joueurs</h1>
+        <section class="ptb1">
+            {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
+            {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
+                <div id="resultPlayer" class="ptb1 xLarge-3 large-3 medium-3 small-3 xSmall-3 colorB">
+                    <h3 class="center">
+                        <a class="firstName colorB" href="{{ path ('front_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
+                    </h3>
+                    <p class="center">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="16" height="24" viewBox="4 4 32 32" style="fill: #2249AB">
+                            <path d="M16 0c-5.523 0-10 4.477-10 10 0 10 10 22 10 22s10-12 10-22c0-5.523-4.477-10-10-10zM16 16c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"></path>
+                        </svg> {{ user.cityUser }}
+                    </p>
+                    {% if user.photo %}
+                        <div class="width70 searchPlayer p3">
+                            <img src="{{ asset('img/upload/' ~ user.photo) }}" alt="photo de profil" class="photoProfil">
+                        </div>
+                    {% endif %}
+                    <p class="center titres30">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 4 32 32" style="fill: #2249AB">
+                            <path d="M15.331 19.76c-0.026-0.018-3.034-5.075-3.044-5.14-0.622-1.359-1.124-2.749-0.078-3.366l-4.341-7.32c-1.125 0.841-4.307 5.405 1.649 15.748 6.274 10.9 12.245 10.447 13.442 9.709l-4.23-7.145c-1 0.588-1.842-0.381-3.398-2.486zM25.862 26.617l0.001-0.006c0 0-3.303-5.566-3.305-5.568-0.262-0.441-0.825-0.58-1.264-0.324l-2.024 1.197 4.242 7.166c0 0 2.024-1.191 2.023-1.195h0.004c0.465-0.276 0.572-0.846 0.323-1.27zM14.786 9.736v-0.004c0.465-0.275 0.574-0.845 0.325-1.265l0.002-0.006c0 0-3.398-5.729-3.4-5.73-0.261-0.443-0.826-0.58-1.263-0.324l-2.024 1.197 4.336 7.324c0 0 2.023-1.189 2.024-1.192z"></path>
+                        </svg> {{ user.phoneUser }}
+                    </p>
+                    <p class="center titres30">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="2 0 32 36" style="fill: #2249AB">
+                            <path d="M29 4h-26c-1.65 0-3 1.35-3 3v20c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-20c0-1.65-1.35-3-3-3zM12.461 17.199l-8.461 6.59v-15.676l8.461 9.086zM5.512 8h20.976l-10.488 7.875-10.488-7.875zM12.79 17.553l3.21 3.447 3.21-3.447 6.58 8.447h-19.579l6.58-8.447zM19.539 17.199l8.461-9.086v15.676l-8.461-6.59z"></path>
+                        </svg> {{ user.email }}
+                    </p>
+                    {#
+                    <p class="center">Préférences :</p>
+                    #}
+                    {#je rajoute le niveau du joueur situé dans l'entité Level en faisant une boucle
+                    dans le champs level de la table User, pour chaque champs level, j'affiche le niveau "levelUser" de la table level#}
+                    {#
+                    {% for level in user.level %}
+                        <p class="center">{{ level.levelUser }}</p>
+                    {% endfor %}
+                    {% for day in user.day %}
+                        <p class="center">{{ day.dayUser }}</p>
+                    {% endfor %}
+                    {% for hour in user.hour %}
+                        <p class="center">{{ hour.hourUser }}</p>
+                    {% endfor %}
+                    {% for structure in user.structure %}
+                        <p class="center">{{ structure.nameStructure }}</p>
+                    {% endfor %}
+                    <p class="center font18">{{ user.commentUser }}</p>
+                    #}
                 </div>
-            {% endif %}
-            <p>Ville : {{ user.cityUser }}</p>
-            <p>Commentaire : {{ user.commentUser }}</p>
-            {#je rajoute le niveau du joueur situé dans l'entité Level en faisant une boucle
-            dans le champs level de la table User, pour chaque champs level, j'affiche le niveau "levelUser" de la table level#}
-            {% for level in user.level %}
-                <p>Niveau : {{ level.levelUser }}</p>
+            {% else %}
+                <p class="ptb1">Pas de joueur, lance une recherche...</p>
             {% endfor %}
-            {% for day in user.day %}
-                <p>Jour : {{ day.dayUser }}</p>
-            {% endfor %}
-            {% for hour in user.hour %}
-                <p>Heure : {{ hour.hourUser }}</p>
-            {% endfor %}
-            {% for structure in user.structure %}
-                <p>Structure : {{ structure.nameStructure }}</p>
-            {% endfor %}
+        </section>
+        {# Recherche mot-clé #}
+        <div class="ptb1 colorLB">
+            <form method="get" action="{{ path('front_user_search') }}">
+                <h2 class="inline">Recherche par mot-clé</h2>
+                <input type="text" name="word" placeholder="Entrez un prénom ou un email" class="width30">
+                <button type="submit">Rechercher</button>
+            </form>
         </div>
-    {% else %}
-        <p>Il n'y a pas de résultat pour cette recherche</p>
-    {% endfor %}
+        {# Recherche par filtres #}
+        <div>
+            <h2 class="colorLB">Filtrer par lieu, jour, heure, niveau :</h2>
+            <div class="titres20">
+            {{ form_start(formFilterUser) }}
+                <div class="p1 frameSearch marg1 margInput0">
+                    {{ form_row(formFilterUser.day, {'attr': {'class': 'p1'}}) }}
+                </div>
+                <div class="p1 frameSearch marg1 margInput5">
+                    {{ form_row(formFilterUser.hour, {'attr': {'class': 'p1'}}) }}
+                </div>
+                <div class="p1 frameSearch marg1 margInput10">
+                    {{ form_row(formFilterUser.level, {'attr': {'class': 'p1'}}) }}
+                </div>
+                <div class="p1 frameSearch marg1 margInput15">
+                    {{ form_row(formFilterUser.structure, {'attr': {'class': 'p1'}}) }}
+                </div>
+                <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12 ptb1 center">
+                    {{ form_row(formFilterUser.submit) }}
+                </div>
+            {{ form_end(formFilterUser) }}
+            </div>
+        </div>
 </main>
 
 {% endblock %}

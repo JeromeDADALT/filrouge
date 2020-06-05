@@ -4,10 +4,89 @@
 @import "responsive";
 @import "var";
 
+/* général */
 * {
   margin: 0;
 }
 
+.width100 {
+  width: 100%;
+}
+
+.width70 {
+  width: 70%;
+}
+
+.width30 {
+  width: 30%;
+}
+
+.p1 {
+  padding: 1%;
+}
+
+.p3 {
+  padding: 3%;
+}
+
+.ptb1 {
+  padding: 1% 0;
+}
+
+.ptb3 {
+  padding: 3% 0;
+}
+
+.pb1 {
+  padding-bottom: 1%;
+}
+
+.pb3 {
+  padding-bottom: 3%;
+}
+
+.pt3 {
+  padding-top: 3%;
+}
+
+.marg3 {
+  margin: 3%;
+}
+
+.marg1 {
+  margin: 1%;
+}
+
+.margL3 {
+  margin-left: 3%;
+}
+
+.colorLB {
+  color: $lightblue;
+}
+
+.colorB {
+  color: $blue;
+}
+
+.colorG {
+  color: $green;
+}
+
+/*
+.backgroundImage {
+  height: auto;
+  width: 100%;
+  background-image: url("../../img/imageAccueil.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+  z-index: auto;
+}
+*/
+
+/* header, footer */
 .headerHome {
   height: 100vh;
   width: 100%;
@@ -17,25 +96,228 @@
   background-repeat: no-repeat;
 }
 
-section, footer, nav {
+header {
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-nav ul {
+header nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navHome {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header nav div {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav div, nav div a {
+header nav ul {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 5%;
+}
+
+.listNav {
+  display: list-item;
+  list-style: none;
+}
+
+footer nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.titres50 {
+  font-size: 50px;
+  font-weight: bolder;
+}
+
+.titres34 {
+  font-size: 34px;
+  font-weight: bolder;
+}
+
+.titres32 {
+  font-size: 32px;
+  font-weight: bolder;
+}
+
+.titres30 {
+  font-size: 30px;
+}
+
+.titres20 {
+  font-size: 20px;
+}
+
+.colorBackground {
+  background-color: $blue;
+}
+
+.logo {
+  width: 100%;
+  border-radius: 5%;
+}
+
+/* accueil */
+section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.colorBackgroundForm {
+  background-color: aliceblue;
+}
+
+#user_photo {
+  font-size: 16px;
+}
+
+#user_password_first {
+  margin-bottom: 1%;
+  width: 100%;
+}
+
+#user_password_second {
+  width: 100%;
+}
+
+/* joueurs */
+.photoProfilCircle {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.photoProfil {
+  width: 100%;
+  border-radius: 10%;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.menuHome {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+.backgroundPlayer {
+  background-color: $yellow;
+  border-radius: 2%;
+}
+
+.frameSearch {
+  border: solid 2px $orange;
+  border-radius: 10px;
+}
+
+.frameSearch:hover {
+  border: solid 5px $orange;
+  border-radius: 10px;
+  font-weight: bolder;
+}
+
+.frameSearch:hover {
+  transition: all 0.2s linear;
+}
+
+.margInput0 {
+  margin-right: 15%;
+}
+
+.margInput5 {
+  margin-left: 5%;
+  margin-right: 10%;
+}
+
+.margInput10 {
+  margin-left: 10%;
+  margin-right: 5%;
+}
+
+.margInput15 {
+  margin-left: 15%;
+}
+
+.searchPlayer {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  text-align: center;
+}
+
+#resultPlayer:hover {
+  background-color: $orange;
+  border-radius: 2%;
+}
+
+#resultPlayer:hover {
+  transition: all 0.8s ease;
+}
+
+#searchButton {
+  border-radius: 50px;
+}
+
+#searchButton:hover {
+  border: solid 4px $green;
+  font-weight: bold;
+  transform: scale(1.1);
+}
+
+#searchButton:hover {
+  transition: all 0.8s ease;
+}
+
+/* terrains */
+.inline {
+  display: inline-block;
+}
+
+.searchStructure {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  text-align: center;
+}
+
+.frameStructure {
+  margin-bottom: 3%;
+  border: solid 4px $blue;
+  border-radius: 8%;
+  text-align: center;
+  transition: all 1s ease;
+}
+
+.frameStructure:hover {
+  transform: scale(1.3);
+}
+
+.font18 {
+  font-size: 18px;
+}
+
+/* règles de jeu */
+.scheme {
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
 }

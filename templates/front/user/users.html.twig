@@ -3,39 +3,45 @@
 {% block title %}Les joueurs{% endblock %}
 
 {% block user %}
-    <main>
-        <h1>Liste des joueurs membres de la communauté</h1>
-        <div>
-            <h3>Filtrer les joueurs par prénom, email, lieu, jour, heure, niveau</h3>
-            {% if is_granted('IS_AUTHENTICATED_FULLY') and '{{ user.enable }}' == true %}
-                <a href="{{ path('front_user_filter') }}">Recherche multi critères</a>
-            {% else %}
-                <p>Identifiez-vous pour accéder à la recherche multi-critères.</p>
-            {% endif %}
-        </div>
-
+    <main class="p3">
+        <h1 class="pb3 colorLB">Bienvenue aux nouveaux membres !</h1>
+        <section>
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
-            <div>
+            {# Affichage des 3 derniers inscrits #}
+            <div class="p1 xLarge-3 large-3 medium-3 small-3 xSmall-3 center">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and '{{ user.enable }}' == true %}
-                    <h2>
-                        <a class="firstName" href="{{ path ('front_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
-                    </h2>
+                    <div class="xLarge-4 large-4 medium-4 small-4 xSmall-4 p3">
+                        <h2>
+                            <a class="firstName center colorG" href="{{ path ('front_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
+                        </h2>
+                        <p class="center titres20">{{ user.cityUser }}</p>
+                    </div>
                 {% else %}
-                    <h2>{{ user.firstName }}</h2>
-                    <p>(Accés à la fiche utilisateur réservé aux membres)</p>
-                {% endif %}
-                {% if user.photo %}
-                    <div>
-                        <img class="img-fluid" src="{{ asset('img/upload/' ~ user.photo) }}" alt="photo de profil">
+                    <div class="xLarge-4 large-4 medium-4 small-4 xSmall-4 p3">
+                        <h2 class="firstName center colorG">{{ user.firstName }}</h2>
+                        <a href="{{ path('front_insert_user') }}">Inscris-toi !</a>
                     </div>
                 {% endif %}
-                <p>Ville : {{ user.cityUser }}</p>
-                {% for level in user.level %}
-                    <p>Niveau : {{ level.levelUser }}</p>
-                {% endfor %}
+                {% if user.photo %}
+                    <div class="xLarge-4 large-4 medium-4 small-4 xSmall-4 p3">
+                        <img src="{{ asset('img/upload/' ~ user.photo) }}" alt="photo de profil" class="photoProfilCircle">
+                    </div>
+                {% endif %}
             </div>
         {% endfor %}
+            {# Recherche multi-critères #}
+            <div id="searchButton" class="xLarge-6 large-6 medium-6 small-6 xSmall-6 p1 marg3 center">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') and '{{ user.enable }}' == true %}
+                    <a href="{{ path('front_user_filter') }}">
+                        <h3 class="colorG titres30">Envie de jouer ? Recherche un partenaire</h3>
+                    </a>
+                {% else %}
+                    <a href="{{ path('app_login') }}">
+                        <h3 class="colorG titres30">Connecte-toi pour rechercher des joueurs</h3>
+                    </a>
+                {% endif %}
+            </div>
+        </section>
     </main>
-
 {% endblock %}

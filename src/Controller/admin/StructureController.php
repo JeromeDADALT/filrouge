@@ -30,7 +30,7 @@ class StructureController extends AbstractController
     /**
      * @Route("admin/structure/show/{id}", name="admin_show_structure")
      */
-    public function showUser (StructureRepository $structureRepository, $id) {
+    public function showStructure (StructureRepository $structureRepository, $id) {
         $structure = $structureRepository->find($id);
         return $this->render('admin/structure/structure.html.twig',
             [

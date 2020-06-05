@@ -37,7 +37,7 @@ class UserController extends AbstractController
      * @Route("front/users/list", name="front_users_list")
      */
     public function users (UserRepository $userRepository) {
-        $users = $userRepository->findAll();
+        $users = $userRepository->findBy([], ['id' => 'DESC'], 3, 0);
         return $this->render('front/user/users.html.twig',
             [
                 'users' => $users
