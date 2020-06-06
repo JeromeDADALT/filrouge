@@ -19,7 +19,6 @@
             <h4>Filtrer les joueurs par lieu, jour, heure, niveau</h4>
             <a href="{{ path('admin_user_filter') }}">Recherche multi critères</a>
         </div>
-
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
             <div>
@@ -37,5 +36,4 @@
             </div>
         {% endfor %}
     </main>
-
 {% endblock %}

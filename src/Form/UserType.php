@@ -23,13 +23,11 @@ class UserType extends AbstractType
     {
         $builder
             ->add('email')
-            //->add('roles')
             //j'ajoute des options sur le mot de passe pour activer la confirmation et le message d'erreur
             ->add('password', RepeatedType::class,
                 [
                     'type' => PasswordType::class,
                     'invalid_message' => 'Les mots de passe ne correspondent pas.',
-                    //'options' => ['attr' => ['class' => 'password-field']],
                     'required' => true,
                     'first_options'  => ['label' => 'Mot de passe*'],
                     'second_options' => ['label' => 'Confirmer le mot de passe*']
@@ -76,7 +74,7 @@ class UserType extends AbstractType
             ->add('structure', EntityType::class,
                 [
                     'class' => Structure::class,
-                    'label' => 'Lieu',
+                    'label' => 'Terrain',
                     'choice_label' => 'nameStructure',
                     'multiple' => true,
                     'expanded' => true,

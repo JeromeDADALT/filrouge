@@ -4,6 +4,7 @@
 
 {% block structure %}
     <h1>Liste des structures de Padel en Gironde</h1>
+    {# formulaire de recherche par mot-clé#}
     <div>
         <form method="get" action="{{ path('admin_structure_search') }}">
             <p>Recherche par nom ou ville</p>
@@ -11,7 +12,6 @@
             <button type="submit">Rechercher</button>
         </form>
     </div>
-
     <main>
         <h2>
             <a href="{{ path('admin_insert_structure') }}">Ajouter une structure</a>

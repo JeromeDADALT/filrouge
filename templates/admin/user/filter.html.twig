@@ -3,7 +3,8 @@
 {% block title %}Recherche multi-critères{% endblock %}
 
 {% block user %}
-<h1>Recherche des joueurs membres</h1>
+    <h1>Recherche des joueurs membres</h1>
+    {# Recherche mot-clé #}
     <div>
         <form method="get" action="{{ path('admin_user_search') }}">
             <h2>Recherche par prénom ou email</h2>
@@ -11,29 +12,29 @@
             <button type="submit">Rechercher</button>
         </form>
     </div>
-<div>
-    <h2>Filtrer par lieu, jour, heure, niveau :</h2>
-    {{ form(formFilterUser) }}
-</div>
-
-<main>
-    {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
-    {% for user in users %}
-        <div>
-            <h3><a href="{{ path ('admin_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
-            </h3>
-            <p>Email : {{ user.email }}</p>
-            <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
+    {# Recherche par filtres #}
+    <div>
+        <h2>Filtrer par lieu, jour, heure, niveau :</h2>
+        {{ form(formFilterUser) }}
+    </div>
+    <main>
+        {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
+        {% for user in users %}
             <div>
-                <a href="{{ path('admin_update_user', {'id' : user.id}) }}">Modifier cet utilisateur</a>
+                <h3>
+                    <a href="{{ path ('admin_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
+                </h3>
+                <p>Email : {{ user.email }}</p>
+                <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
+                <div>
+                    <a href="{{ path('admin_update_user', {'id' : user.id}) }}">Modifier cet utilisateur</a>
+                </div>
+                <div>
+                    <a href="{{ path('admin_delete_user', {'id' : user.id}) }}">Supprimer cet utilisateur</a>
+                </div>
             </div>
-            <div>
-                <a href="{{ path('admin_delete_user', {'id' : user.id}) }}">Supprimer cet utilisateur</a>
-            </div>
-        </div>
-    {% else %}
-        <p>Il n'y a pas de résultat pour cette recherche</p>
-    {% endfor %}
-</main>
-
+        {% else %}
+            <p>Il n'y a pas de résultat pour cette recherche</p>
+        {% endfor %}
+    </main>
 {% endblock %}

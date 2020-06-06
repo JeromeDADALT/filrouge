@@ -3,48 +3,51 @@
 {% block title %}Modification{% endblock %}
 
 {% block user %}
-<main class="p3 searchPlayer colorBackgroundForm">
-    <h1 class="colorLB">Modification de compte :</h1>
-    <div class="p1 titres20">
-    {# pour afficher le formulaire j'utilise form_start() et form_end() en passant la variable qui contient le formulaire #}
-    {{ form_start(formUser) }}
-        <div class="pb1">
-        {{ form_row(formUser.firstName, {'label': 'Prénom*', 'attr': {'class': 'width100'}}) }}
+    <main class="p3 searchPlayer colorBackgroundForm">
+        <h1 class="colorLB">Modification de compte :</h1>
+        <div class="p1 titres20">
+            {# pour afficher le formulaire j'utilise form_start() et form_end() en passant la variable qui contient le formulaire #}
+            {{ form_start(formUser) }}
+                <div class="pb1">
+                    {{ form_row(formUser.firstName, {'label': 'Prénom*', 'attr': {'class': 'width100'}}) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.email, {'label': 'Email*', 'attr': {'class': 'width100'}}) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.password, {'attr': {'class': 'width100'}}) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.phoneUser, {'label': 'Téléphone', 'attr': {'class': 'width100'}}) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.cityUser, {'label': 'Ville', 'attr': {'class': 'width100'}}) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.photo, {'attr': {'class': 'titres20'}}) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.commentUser, {'label': 'Commentaire'}) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.level) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.day) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.hour) }}
+                </div>
+                <div class="pb1">
+                    {{ form_row(formUser.structure) }}
+                </div>
+                <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12 ptb1 center">
+                    {{ form_row(formUser.submit) }}
+                </div>
+                <div class="hidden">
+                    {{ form_row(formUser.enable) }}
+                </div>
+            {{ form_end(formUser) }}
         </div>
-        <div class="pb1">
-        {{ form_row(formUser.email, {'label': 'Email*', 'attr': {'class': 'width100'}}) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.password, {'attr': {'class': 'width100'}}) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.phoneUser, {'label': 'Téléphone', 'attr': {'class': 'width100'}}) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.cityUser, {'label': 'Ville', 'attr': {'class': 'width100'}}) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.photo, {'attr': {'class': 'titres20'}}) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.commentUser, {'label': 'Commentaire'}) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.level) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.day) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.hour) }}
-        </div>
-        <div class="pb1">
-        {{ form_row(formUser.structure) }}
-        </div>
-        <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12 ptb1 center">
-        {{ form_row(formUser.submit) }}
-        </div>
-    {{ form_end(formUser, {'render_rest': false}) }}
-    </div>
-</main>
+    </main>
 {% endblock %}

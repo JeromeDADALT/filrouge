@@ -2,33 +2,104 @@
 <!doctype html>
 <html lang=fr>
 <head>
+    <!-- je m'assure du bon encodage des caractères en déclarant l'utf-8 -->
     <meta charset="UTF-8">
+    <!-- le meta tag viewport permet d'éviter les effets de zoom sur les différents supports -->
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!-- je ne veux pas utiliser la compatibilité pour ie -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- je souhaite que le référencement fonctionne même si https et renvoie que le nom de domaine ou sous-domaine -->
+    <meta name="referrer" content="origin">
+    <!-- j'indique au naviagteur d'être en plein écran -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="author" content="Jérôme DA DALT">
+    <meta name="description" content="Padel33 est un site de mise en relation de joueurs de padel en Gironde">
+    <meta name="keywords" content="Padel33 padel gironde recherche joueur">
     <title>{% block title %} {% endblock %}</title>
     <link rel="icon" type="image/png" href="{{ asset('img/faviconpadel.png') }}" />
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
-    <script
-            src="https://code.jquery.com/jquery-3.5.1.js"
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
             integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
             crossorigin="anonymous"></script>
     <script src="{{ asset('src/js/app.js') }}"></script>
 </head>
-
 <body>
-
-<header class="headerHome">
-    <!-- logo et connexion inscription, menu principal-->
-    <nav class="navHome">
-        <div class="width100">
-            <!-- logo -->
-            <div class="xLarge-3 large-3 medium-3 small-3 xSmall-3 p1">
-                <a href="{{ path('home') }}"><img src="{{ asset('img/logofondblanc.png') }}" alt="logo du site Padel33" class="logo">
-                </a>
+    <header class="headerHome">
+        <!-- logo et connexion inscription, menu principal -->
+        <nav class="navHome">
+            <div class="width100">
+                <!-- logo -->
+                <div class="xLarge-2 large-2 medium-3 small-4 xSmall-4 p1">
+                    <a href="{{ path('home') }}">
+                        <img src="{{ asset('img/logofondblanc.jpg') }}" alt="logo du site Padel33" class="logo">
+                    </a>
+                </div>
+                <!-- connexion inscription -->
+                <ul class="xLarge-5 large-5 medium-3 small-5 xSmall-5 p1">
+                    <!--j'ajoute une condition pour faire apparaitre le lien vers le back office (uniquement en admin) -->
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <li>
+                            <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
+                        </li>
+                    {% endif %}
+                    <!--j'ajoute une condition pour faire apparaitre Connexion et Inscription si l'utilisateur n'est pas connecté-->
+                    {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li>
+                            <a href="{{ path('app_login') }}">Connexion</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('front_insert_user') }}">Inscription</a>
+                        </li>
+                    {% endif %}
+                    <!--j'ajoute une condition pour faire apparaitre Modification et Déconnexion si l'utilisateur est connecté-->
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class="colorG">
+                            Bonjour {{ app.user.firstName }}
+                        </li>
+                        <!--pour modifier le compte de l'utilisateur connecté, je récupère son id par app.user.id -->
+                        <li>
+                            <a href="{{ path('front_update_user', {'id' : app.user.id}) }}">Mon compte</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('app_logout') }}">Déconnexion</a>
+                        </li>
+                    {% endif %}
+                </ul>
             </div>
-            <!-- connexion inscription-->
-            <ul class="xLarge-5 large-5 medium-5 small-5 xSmall-5 p1">
+            <!-- burger -->
+            <div class="xLarge-3 large-3 medium-3 small-3 xSmall-3">
+                <span id="burger">
+                    <svg viewBox="0 0 32 32">
+                        <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
+                    </svg>
+                </span>
+            </div>
+            <!-- menu principal -->
+            <ul class="xLarge-12 large-12 medium-12 small-12 xSmall-12">
+                <li>
+                    <a href="{{ path('front_users_list') }}" class="titres50">JOUEURS</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_structures_list') }}" class="titres50">TERRAINS</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_rules') }}" class="titres50">REGLES DE JEU</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- menu responsive -->
+        <navresp>
+            <ul>
+                <!-- logo -->
+                <li>
+                    <div>
+                        <a href="{{ path('home') }}">
+                            <img src="{{ asset('img/logofondblanc.jpg') }}" alt="logo du site Padel33" class="logo">
+                        </a>
+                    </div>
+                </li>
+                <!-- connexion inscription -->
                 <!--j'ajoute une condition pour faire apparaitre le lien vers le back office (uniquement en admin) -->
                 {% if is_granted('ROLE_ADMIN') %}
                     <li>
@@ -57,77 +128,75 @@
                         <a href="{{ path('app_logout') }}">Déconnexion</a>
                     </li>
                 {% endif %}
+                <!-- menu principal -->
+                <li>
+                    <a href="{{ path('front_users_list') }}">Joueurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_structures_list') }}">Terrains</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_rules') }}">Règles de jeu</a>
+                </li>
             </ul>
+            <div id="overlay"></div>
+        </navresp>
+    </header>
+
+    {# je fais apparaitre les messages flash s'il y en a #}
+    {% for message in app.flashes('success') %}
+        <div class="flashes">
+            {{ message }}
         </div>
-        <!-- menu principal -->
-        <ul class="xLarge-12 large-12 medium-12 small-12 xSmall-12">
-            <li>
-                <a href="{{ path('front_users_list') }}" class="titres50">JOUEURS</a>
-            </li>
-            <li>
-                <a href="{{ path('front_structures_list') }}" class="titres50">TERRAINS</a>
-            </li>
-            <li>
-                <a href="{{ path('front_rules') }}" class="titres50">REGLES DE JEU</a>
-            </li>
-        </ul>
-    </nav>
-</header>
+    {% endfor %}
 
-{# je fais apparaitre les messages flash s'il y en a #}
-{% for message in app.flashes('success') %}
-    <div class="flashes">
-        {{ message }}
-    </div>
-{% endfor %}
+    <!--je crée des blocks que je vais pouvoir inclure dans les fichiers twig pour isoler et pouvoir travailler sur des parties-->
+    {% block body %}
+    {% endblock %}
 
-<!--je crée des blocks que je vais pouvoir inclure dans les fichiers twig pour isoler et pouvoir travailler sur des parties-->
-{% block body %}
-{% endblock %}
+    {% block user %}
+    {% endblock %}
 
-{% block user %}
-{% endblock %}
+    {% block structure %}
+    {% endblock %}
 
-{% block structure %}
-{% endblock %}
-
-<footer class="colorBackground">
-    <!-- menu footer -->
-    <nav>
-        <ul class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
-            <li>
-                <a href="{{ path('front_users_list') }}">Joueurs</a>
-            </li>
-            <li>
-                <a href="{{ path('front_structures_list') }}">Terrains</a>
-            </li>
-            <li>
-                <a href="{{ path('front_rules') }}">Règles de jeu</a>
-            </li>
-        </ul>
-        <div class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
-            <a href="{{ path('home') }}"><img src="{{ asset('img/logofondblanc.png') }}" alt="logo du site Padel33" class="logo">
-            </a>
-        </div>
-        <ul class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
-            <li>
-                <a href="{{ path('front_contact') }}">Contact / A propos</a>
-            </li>
-            <li>
-                <a href="{{ path('front_contact') }}">Plan du site</a>
-            </li>
-            <li>
-                <a href="{{ path('front_legality') }}">CGU</a>
-            </li>
-            <li>
-                <a href="{{ path('front_legality') }}">Données personnelles</a>
-            </li>
-            <li>
-                <a href="{{ path('front_legality') }}">Mentions légales</a>
-            </li>
-        </ul>
-    </nav>
-</footer>
-
+    <footer class="colorBackground">
+        <!-- menu footer -->
+        <nav>
+            <ul class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
+                <li>
+                    <a href="{{ path('front_users_list') }}">Joueurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_structures_list') }}">Terrains</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_rules') }}">Règles de jeu</a>
+                </li>
+            </ul>
+            <div class="xLarge-2 large-2 medium-3 small-4 xSmall-4 p1">
+                <a href="{{ path('home') }}">
+                    <img src="{{ asset('img/logofondblanc.jpg') }}" alt="logo du site Padel33" class="logo">
+                </a>
+            </div>
+            <ul class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
+                <li>
+                    <a href="{{ path('front_contact') }}">Contact / A propos</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_contact') }}">Plan du site</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_legality') }}">CGU</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_legality') }}">Données personnelles</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_legality') }}">Mentions légales</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>

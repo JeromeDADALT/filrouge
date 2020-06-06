@@ -72,8 +72,18 @@ tout en gérant le responsive via les media queries */
     visibility: hidden;
   }
 
-  footer div:nth-child(2) .footerUl {
-    border: none!important;
+  .center {
+    flex-wrap: wrap;
+  }
+
+  .frameStructure:hover {
+    transform: scale(1.2) !important;
+  }
+
+  .scheme {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50% !important;
   }
 }
 
@@ -100,8 +110,24 @@ tout en gérant le responsive via les media queries */
     visibility: hidden;
   }
 
-  footer div:nth-child(2) .footerUl {
-    border: none!important;
+  p, a, li, input, button, textarea, span {
+    font-family: 'hindmadurai_regular', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .center {
+    flex-wrap: wrap;
+  }
+
+  .frameStructure:hover {
+    transform: scale(1.1) !important;
+  }
+
+  .scheme {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
   }
 }
 
@@ -128,7 +154,23 @@ tout en gérant le responsive via les media queries */
     visibility: hidden;
   }
 
-  footer div:nth-child(2) .footerUl {
-    border: none!important;
+  p, a, li, input, button, textarea, span {
+    font-family: 'hindmadurai_regular', sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .center {
+    flex-wrap: wrap;
+  }
+
+  .frameStructure:hover {
+    transform: scale(1.1) !important;
+  }
+
+  .scheme {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
   }
 }

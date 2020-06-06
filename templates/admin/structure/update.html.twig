@@ -3,7 +3,6 @@
 {% block title %}Modification{% endblock %}
 
 {% block structure %}
-
     {# pour afficher le formulaire j'utilise form() en passant la variable qui contient le formulaire #}
     {{ form_start(formStructure) }}
         {{ form_row(formStructure.nameStructure, {'label': 'Nom de la structure*'}) }}
@@ -12,5 +11,4 @@
         {{ form_row(formStructure.linkStructure, {'label': 'Site web'}) }}
         {{ form_row(formStructure.commentStructure, {'label': 'Commentaire'}) }}
     {{ form_end(formStructure) }}
-
 {% endblock %}

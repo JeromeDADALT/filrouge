@@ -3,7 +3,6 @@
 {% block title %}Modification{% endblock %}
 
 {% block user %}
-
     {# pour afficher le formulaire j'utilise form() en passant la variable qui contient le formulaire #}
     {{ form_start(formUser) }}
         {{ form_row(formUser.firstName, {'label': 'Prénom*'}) }}
@@ -13,5 +12,4 @@
         {{ form_row(formUser.enable, {'label': 'Compte actif'}) }}
         {{ form_row(formUser.email, {'label': 'Email*'}) }}
     {{ form_end(formUser) }}
-
 {% endblock %}

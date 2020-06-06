@@ -3,15 +3,10 @@
 
 namespace App\Controller\front;
 
-
-use App\Entity\Structure;
-use App\Form\StructureType;
 use App\Repository\StructureRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 class StructureController extends AbstractController
 {

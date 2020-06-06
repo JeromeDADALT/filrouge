@@ -5,6 +5,7 @@
 {% block structure %}
     <main class="p3">
         <h1 class="pb3 colorLB">Les structures de Padel en Gironde</h1>
+        {# formulaire de recherche par mot-clé#}
         <div class="pb3 searchStructure">
             <form method="get" action="{{ path('front_structure_search') }}">
                 <h2 class="inline">Recherche par nom ou ville</h2>
@@ -15,7 +16,7 @@
         <section>
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
         {% for structure in structures|sort((a, b) => a.nameStructure <=> b.nameStructure)%}
-            <div class="xLarge-3 large-3 medium-3 small-3 xSmall-3 p1 frameStructure">
+            <div class="xLarge-3 large-3 medium-5 small-12 xSmall-12 p1 frameStructure">
                 <a href="{{ structure.linkStructure }}" target = "_blank" class="colorLB">
                     <h1 class="titres30">{{ structure.nameStructure }}</h1>
                 </a>

@@ -50,7 +50,7 @@ class FilterType extends AbstractType
             ->add('structure', EntityType::class,
                 [
                     'class' => Structure::class,
-                    'label' => 'Lieu',
+                    'label' => 'Terrain',
                     'choice_label' => 'nameStructure',
                     'multiple' => true,
                     'expanded' => true,

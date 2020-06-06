@@ -300,8 +300,18 @@ tout en gérant le responsive via les media queries */
     visibility: hidden;
   }
 
-  footer div:nth-child(2) .footerUl {
-    border: none !important;
+  .center {
+    flex-wrap: wrap;
+  }
+
+  .frameStructure:hover {
+    transform: scale(1.2) !important;
+  }
+
+  .scheme {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50% !important;
   }
 }
 @media only screen and (min-width: 260px) and (max-width: 519px) {
@@ -362,8 +372,24 @@ tout en gérant le responsive via les media queries */
     visibility: hidden;
   }
 
-  footer div:nth-child(2) .footerUl {
-    border: none !important;
+  p, a, li, input, button, textarea, span {
+    font-family: "hindmadurai_regular", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .center {
+    flex-wrap: wrap;
+  }
+
+  .frameStructure:hover {
+    transform: scale(1.1) !important;
+  }
+
+  .scheme {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
   }
 }
 @media only screen and (max-width: 259px) {
@@ -424,8 +450,24 @@ tout en gérant le responsive via les media queries */
     visibility: hidden;
   }
 
-  footer div:nth-child(2) .footerUl {
-    border: none !important;
+  p, a, li, input, button, textarea, span {
+    font-family: "hindmadurai_regular", sans-serif;
+    font-size: 18px;
+    text-decoration: none;
+  }
+
+  .center {
+    flex-wrap: wrap;
+  }
+
+  .frameStructure:hover {
+    transform: scale(1.1) !important;
+  }
+
+  .scheme {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100% !important;
   }
 }
 /*je déclare mes variables que je vais pouvoir ré utiliser partout plus simplement;
@@ -437,14 +479,17 @@ tout en gérant le responsive via les media queries */
 
 .width100 {
   width: 100%;
+  height: auto;
 }
 
 .width70 {
   width: 70%;
+  height: auto;
 }
 
 .width30 {
   width: 30%;
+  height: auto;
 }
 
 .p1 {
@@ -499,74 +544,6 @@ tout en gérant le responsive via les media queries */
   color: #6FAB11;
 }
 
-/*
-.backgroundImage {
-  height: auto;
-  width: 100%;
-  background-image: url("../../img/imageAccueil.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  opacity: 0.1;
-  z-index: auto;
-}
-*/
-/* header, footer */
-.headerHome {
-  height: 100vh;
-  width: 100%;
-  background-image: url("../../img/imageAccueil.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-header {
-  display: flex;
-  justify-content: space-between;
-}
-
-header nav {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.navHome {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-header nav div {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header nav ul {
-  display: flex;
-  justify-content: space-around;
-  padding-bottom: 5%;
-}
-
-.listNav {
-  display: list-item;
-  list-style: none;
-}
-
-footer nav {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-}
-
 .titres50 {
   font-size: 50px;
   font-weight: bolder;
@@ -586,6 +563,10 @@ footer nav {
   font-size: 30px;
 }
 
+.titres26 {
+  font-size: 26px;
+}
+
 .titres20 {
   font-size: 20px;
 }
@@ -594,9 +575,71 @@ footer nav {
   background-color: #2249AB;
 }
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* header, footer */
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerHome {
+  height: 100vh;
+  width: 100%;
+  background-image: url("../../img/imageAccueil.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+header nav div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 5%;
+}
+
+.navHome {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.listNav {
+  display: list-item;
+  list-style: none;
+}
+
+footer nav {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .logo {
   width: 100%;
-  border-radius: 5%;
+  border-radius: 20px;
 }
 
 /* accueil */
@@ -604,6 +647,17 @@ section {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+
+div.flashes {
+  background-color: #F7E419;
+  color: #2249AB;
+  font-size: 32px;
+  font-weight: bolder;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .colorBackgroundForm {
@@ -632,16 +686,6 @@ section {
 .photoProfil {
   width: 100%;
   border-radius: 10%;
-}
-
-.italic {
-  font-style: italic;
-}
-
-.center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .backgroundPlayer {
@@ -745,6 +789,82 @@ section {
   margin-left: auto;
   margin-right: auto;
   width: 35%;
+}
+
+/* menu burger */
+#burger {
+  margin: 0 15px;
+  cursor: pointer;
+}
+
+navresp {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden;
+  transition: all linear 0.2s;
+}
+
+#overlay {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #2249AB;
+  opacity: 0;
+  visibility: hidden;
+  transition: all linear 0.2s;
+}
+
+navresp ul {
+  background-color: #4A7BF7;
+  padding: 20px;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: -100%;
+  width: calc(80% - 40px);
+  height: calc(100% - 40px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  transition: all linear 0.2s;
+}
+
+navresp ul li {
+  padding: 10px 20px;
+  width: calc(100% - 40px);
+  text-align: center;
+}
+
+navresp ul li a {
+  color: #F79C4A;
+}
+
+.display_menuResp {
+  overflow: hidden;
+}
+
+.display_menuResp navresp {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.display_menuResp navresp ul {
+  left: 0 !important;
+}
+
+.display_menuResp #overlay {
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 /*# sourceMappingURL=style.css.map */

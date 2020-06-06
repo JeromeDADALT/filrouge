@@ -96,7 +96,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             //j'ajoute un message flash
-            $this->addFlash('success', 'L\'utilisateur a bien été ajouté');
+            $this->addFlash('success', 'Félicitations ! Ton compte est bien créé. Connecte-toi maintenant !');
         }
         //je renvoie le formulaire créé dans le fichier twig tout en créant la vue
         return $this->render('front/user/insert.html.twig',
@@ -123,7 +123,10 @@ class UserController extends AbstractController
         $formUser->handleRequest($request);
         //je rajoute une condition pour vérifier si le formulaire a été envoyé et est valide vis à vis des contraintes de la bdd
         if ($formUser->isSubmitted() && $formUser->isValid()) {
-
+            //j'encode la mot de passe récupéré avec encodePassword()
+            $user->setPassword(
+                $this->passwordEncoder->encodePassword( $user, $user->getPassword() )
+            );
             //je déclare une variable qui récupère les données de mon champs 'photo' du formulaire
             $photo = $formUser->get('photo')->getData();
             //je mets une condition if pour faire apparaitre l'image que quand il y a une image upoladée
@@ -146,7 +149,7 @@ class UserController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
             //j'ajoute un message flash
-            $this->addFlash('success', 'L\'utilisateur a bien été modifié');
+            $this->addFlash('success', 'Les modifications ont bien été enregistrées');
         }
         //je renvoie le formulaire créé dans le fichier twig tout en créant la vue
         return $this->render('front/user/update.html.twig',

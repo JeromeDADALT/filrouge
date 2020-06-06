@@ -5,6 +5,7 @@
 {% block user %}
     <h1>Liste des joueurs membres de la communauté</h1>
     <div>
+        {# Recherche mot-clé #}
         <form method="get" action="{{ path('admin_user_search') }}">
             <p>Recherche par prénom ou email</p>
             <input type="text" name="word" placeholder="Entrez un prénom ou un email">
@@ -12,8 +13,9 @@
         </form>
     </div>
     <h2>Résultat(s) de la recherche sur le prénom ou l'email : {{ word }}</h2>
-
+    {# Résultats recherche mot-clé #}
     <main>
+        {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
             <div>
                 <h3>
@@ -35,5 +37,4 @@
             <a href="{{ path('admin_insert_user') }}">Ajouter un utilisateur</a>
         </div>
     </main>
-
 {% endblock %}
