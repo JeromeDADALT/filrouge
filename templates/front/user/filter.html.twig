@@ -8,7 +8,7 @@
         <section class="ptb1">
             {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
             {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
-                <div id="resultPlayer" class="ptb1 xLarge-3 large-3 medium-3 small-3 xSmall-3 colorB">
+                <div id="resultPlayer" class="ptb1 xLarge-3 large-3 medium-5 small-8 xSmall-9 marg3 colorB">
                     <h3 class="center">
                         <a class="firstName colorB" href="{{ path ('front_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
                     </h3>

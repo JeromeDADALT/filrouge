@@ -4,12 +4,12 @@
 
 {% block user %}
     <main class="p3">
-        <h1 class="pb3 colorLB">Bienvenue aux nouveaux membres !</h1>
+        <h1 class="pb3 colorLB">Bienvenue aux nouveaux membres</h1>
         <section>
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique #}
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
             {# Affichage des 3 derniers inscrits #}
-            <div class="p1 xLarge-3 large-3 medium-3 small-3 xSmall-3 center">
+            <div class="p1 xLarge-3 large-3 medium-5 small-12 xSmall-12 center">
                 {# j'ajoute une condition d'être authentifié et avoir un compte actif #}
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and '{{ user.enable }}' == true %}
                     <div class="xLarge-4 large-4 medium-4 small-4 xSmall-4 p3">
@@ -21,26 +21,28 @@
                 {% else %}
                     <div class="xLarge-4 large-4 medium-4 small-4 xSmall-4 p3">
                         <h2 class="firstName center colorG">{{ user.firstName }}</h2>
-                        <a href="{{ path('front_insert_user') }}">Inscris-toi !</a>
+                        <a class="center" href="{{ path('front_insert_user') }}">Inscris-toi !</a>
                     </div>
                 {% endif %}
                 {% if user.photo %}
-                    <div class="xLarge-4 large-4 medium-4 small-4 xSmall-4 p3">
+                    <div class="xLarge-4 large-4 medium-4 small-4 xSmall-4 p3 margL5">
                         <img src="{{ asset('img/upload/' ~ user.photo) }}" alt="photo de profil" class="photoProfilCircle">
                     </div>
                 {% endif %}
             </div>
         {% endfor %}
             {# Recherche multi-critères #}
-            <div id="searchButton" class="xLarge-6 large-6 medium-6 small-6 xSmall-6 p1 marg3 center">
+            <div id="searchButton" class="xLarge-6 large-8 medium-12 small-12 xSmall-12 p1 marg3 center">
                 {# j'ajoute une condition d'être authentifié et avoir un compte actif #}
                 {% if is_granted('IS_AUTHENTICATED_FULLY') and '{{ user.enable }}' == true %}
                     <a href="{{ path('front_user_filter') }}">
-                        <h3 class="colorG titres30">Envie de jouer ? Recherche un partenaire</h3>
+                        <h3 class="colorG titres30 center">Envie de jouer ?</h3>
+                        <h3 class="colorG titres30 center">Recherche un partenaire</h3>
                     </a>
                 {% else %}
                     <a href="{{ path('app_login') }}">
-                        <h3 class="colorG titres30">Connecte-toi pour rechercher des joueurs</h3>
+                        <h3 class="colorG titres30 center">Connecte-toi</h3>
+                        <h3 class="colorG titres30 center">pour chercher des joueurs</h3>
                     </a>
                 {% endif %}
             </div>

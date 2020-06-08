@@ -8,38 +8,54 @@
         <div class="p1 titres20">
             {# pour afficher le formulaire j'utilise form_start() et form_end() en passant la variable qui contient le formulaire #}
             {{ form_start(formUser) }}
-                <div class="pb1">
+                <h4 class="pb1">
                     {{ form_row(formUser.firstName, {'label': 'Prénom*', 'attr': {'class': 'width100'}}) }}
-                </div>
-                <div class="pb1">
+                </h4>
+                <h4 class="pb1">
                     {{ form_row(formUser.email, {'label': 'Email*', 'attr': {'class': 'width100'}}) }}
-                </div>
-                <div class="pb1">
+                </h4>
+                <h4 class="pb1">
                     {{ form_row(formUser.password, {'attr': {'class': 'width100'}}) }}
-                </div>
-                <div class="pb1">
+                </h4>
+                <h4 class="pb1">
                     {{ form_row(formUser.phoneUser, {'label': 'Téléphone', 'attr': {'class': 'width100'}}) }}
-                </div>
-                <div class="pb1">
+                </h4>
+                <h4 class="pb1">
                     {{ form_row(formUser.cityUser, {'label': 'Ville', 'attr': {'class': 'width100'}}) }}
-                </div>
-                <div class="pb1">
+                </h4>
+                <h4 class="pb1">
                     {{ form_row(formUser.photo, {'attr': {'class': 'titres20'}}) }}
-                </div>
-                <div class="pb1">
+                </h4>
+                <h4 class="pb1">
                     {{ form_row(formUser.commentUser, {'label': 'Commentaire'}) }}
+                </h4>
+                <div class="pb1 margTB3">
+                    <h4>
+                        {{ form_label(formUser.level) }}
+                    </h4>
+                    {{ form_widget(formUser.level) }}
+                    {{ form_errors(formUser.level) }}
                 </div>
-                <div class="pb1">
-                    {{ form_row(formUser.level) }}
+                <div class="pb1 margTB3">
+                    <h4>
+                        {{ form_label(formUser.day) }}
+                    </h4>
+                    {{ form_widget(formUser.day) }}
+                    {{ form_errors(formUser.day) }}
                 </div>
-                <div class="pb1">
-                    {{ form_row(formUser.day) }}
+                <div class="pb1 margTB3">
+                    <h4>
+                        {{ form_label(formUser.hour) }}
+                    </h4>
+                    {{ form_widget(formUser.hour) }}
+                    {{ form_errors(formUser.hour) }}
                 </div>
-                <div class="pb1">
-                    {{ form_row(formUser.hour) }}
-                </div>
-                <div class="pb1">
-                    {{ form_row(formUser.structure) }}
+                <div class="pb1 margTB3">
+                    <h4>
+                        {{ form_label(formUser.structure) }}
+                    </h4>
+                    {{ form_widget(formUser.structure) }}
+                    {{ form_errors(formUser.structure) }}
                 </div>
                 <div class="xLarge-12 large-12 medium-12 small-12 xSmall-12 ptb1 center">
                     {{ form_row(formUser.submit) }}

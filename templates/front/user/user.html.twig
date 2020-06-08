@@ -5,8 +5,8 @@
 {% block user %}
     <main>
         <section>
-            <div class="xLarge-6 large-6 medium-6 small-6 xSmall-6 marg3 center backgroundPlayer colorB">
-                <div class="xLarge-6 large-6 medium-6 small-6 xSmall-6 p3">
+            <div class="xLarge-6 large-6 medium-6 small-10 xSmall-10 marg3 center backgroundPlayer colorB">
+                <div class="xLarge-6 large-6 medium-7 small-7 xSmall-7 p3">
                     <h2 class="firstName p1 center">{{ user.firstName }}</h2>
                     {% if user.photo %}
                         <div class="p1">
@@ -19,31 +19,31 @@
                         </svg> {{ user.cityUser }}</p>
                     <p class="p1">{{ user.commentUser }}</p>
                 </div>
-                <div class="xLarge-6 large-6 medium-6 small-6 xSmall-6 p3">
-                    <p class="p1 titres32">
+                <div class="xLarge-8 large-8 medium-12 small-12 xSmall-12 p1">
+                    <p class="p1 titres32 center">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" style="fill: #2249AB">
                             <path d="M15.331 19.76c-0.026-0.018-3.034-5.075-3.044-5.14-0.622-1.359-1.124-2.749-0.078-3.366l-4.341-7.32c-1.125 0.841-4.307 5.405 1.649 15.748 6.274 10.9 12.245 10.447 13.442 9.709l-4.23-7.145c-1 0.588-1.842-0.381-3.398-2.486zM25.862 26.617l0.001-0.006c0 0-3.303-5.566-3.305-5.568-0.262-0.441-0.825-0.58-1.264-0.324l-2.024 1.197 4.242 7.166c0 0 2.024-1.191 2.023-1.195h0.004c0.465-0.276 0.572-0.846 0.323-1.27zM14.786 9.736v-0.004c0.465-0.275 0.574-0.845 0.325-1.265l0.002-0.006c0 0-3.398-5.729-3.4-5.73-0.261-0.443-0.826-0.58-1.263-0.324l-2.024 1.197 4.336 7.324c0 0 2.023-1.189 2.024-1.192z"></path>
                         </svg> {{ user.phoneUser }}
                     </p>
-                    <p class="p1 titres32">
+                    <p class="p1 titres32 center">
                         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32" style="fill: #2249AB">
                             <path d="M29 4h-26c-1.65 0-3 1.35-3 3v20c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-20c0-1.65-1.35-3-3-3zM12.461 17.199l-8.461 6.59v-15.676l8.461 9.086zM5.512 8h20.976l-10.488 7.875-10.488-7.875zM12.79 17.553l3.21 3.447 3.21-3.447 6.58 8.447h-19.579l6.58-8.447zM19.539 17.199l8.461-9.086v15.676l-8.461-6.59z"></path>
                         </svg> {{ user.email }}
                     </p>
-                    <p class="ptb3">Mes préférences :</p>
+                    <p class="ptb3 margL5">Mes préférences :</p>
                     {#je rajoute le niveau du joueur situé dans l'entité Level en faisant une boucle
                     dans le champs level de la table User, pour chaque champs level, j'affiche le niveau "levelUser" de la table level#}
                     {% for level in user.level %}
-                        <p class="p1">{{ level.levelUser }}</p>
+                        <p class="p1 margL5">{{ level.levelUser }}</p>
                     {% endfor %}
                     {% for day in user.day %}
-                        <p class="p1">{{ day.dayUser }}</p>
+                        <p class="p1 margL5">{{ day.dayUser }}</p>
                     {% endfor %}
                     {% for hour in user.hour %}
-                        <p class="p1">{{ hour.hourUser }}</p>
+                        <p class="p1 margL5">{{ hour.hourUser }}</p>
                     {% endfor %}
                     {% for structure in user.structure %}
-                        <p class="p1">{{ structure.nameStructure }}</p>
+                        <p class="p1 margL5">{{ structure.nameStructure }}</p>
                     {% endfor %}
                 </div>
             </div>

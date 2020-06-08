@@ -19,23 +19,22 @@
     <title>{% block title %} {% endblock %}</title>
     <link rel="icon" type="image/png" href="{{ asset('img/faviconpadel.png') }}" />
     <link rel="stylesheet" href="{{ asset('dist/css/style.css') }}">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
-    <script src="{{ asset('src/js/app.js') }}"></script>
 </head>
 <body>
     <header class="colorBackground">
         <!-- logo et connexion inscription-->
         <nav>
             <!-- logo -->
-            <div class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
+            <div class="xLarge-2 large-2 medium-3 small-4 xSmall-4 p1">
                 <a href="{{ path('home') }}">
                     <img src="{{ asset('img/logofondblanc.jpg') }}" alt="logo du site Padel33" class="logo">
                 </a>
             </div>
             <!-- menu principal -->
-            <ul class="xLarge-5 large-5 medium-5 small-5 xSmall-5 p1">
+            <ul class="xLarge-7 large-7 medium-3 small-3 xSmall-3 p1">
                 <li>
                     <a href="{{ path('front_users_list') }}" class="titres34">JOUEURS</a>
                 </li>
@@ -47,7 +46,61 @@
                 </li>
             </ul>
             <!-- connexion inscription-->
-            <ul class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1 listNav">
+            <ul class="xLarge-2 large-2 medium-3 small-3 xSmall-3 p1 listNav">
+                <!--j'ajoute une condition pour faire apparaitre Connexion et Inscription si l'utilisateur n'est pas connecté-->
+                {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li>
+                        <a href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                    <!-- burger -->
+                    <span id="burger" class="pL">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32" style="fill: #F79C4A">
+                            <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
+                        </svg>
+                    </span>
+                    <li>
+                        <a href="{{ path('front_insert_user') }}">Inscription</a>
+                    </li>
+                {% endif %}
+                <!--j'ajoute une condition pour faire apparaitre le lien vers le back office (uniquement en admin) -->
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                        <a href="{{ path('admin_dashboard') }}" class="titres20">Admin</a>
+                    </li>
+                {% endif %}
+                <!--j'ajoute une condition pour faire apparaitre Modification et Déconnexion si l'utilisateur est connecté-->
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="colorG">
+                        Bonjour {{ app.user.firstName }}
+                    </li>
+                    <!-- burger -->
+                    <span id="burger" class="pL">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 32 32" style="fill: #F79C4A">
+                            <path d="M2 6h28v6h-28zM2 14h28v6h-28zM2 22h28v6h-28z"></path>
+                        </svg>
+                    </span>
+                    <!--pour modifier le compte de l'utilisateur connecté, je récupère son id par app.user.id -->
+                    <li>
+                        <a href="{{ path('front_update_user', {'id' : app.user.id}) }}">Mon compte</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+        <!-- menu responsive -->
+        <navresp>
+            <ul>
+                <!-- logo -->
+                <li>
+                    <div>
+                        <a href="{{ path('home') }}">
+                            <img src="{{ asset('img/logofondblanc.jpg') }}" alt="logo du site Padel33" class="logo">
+                        </a>
+                    </div>
+                </li>
+                <!-- connexion inscription -->
                 <!--j'ajoute une condition pour faire apparaitre le lien vers le back office (uniquement en admin) -->
                 {% if is_granted('ROLE_ADMIN') %}
                     <li>
@@ -76,8 +129,19 @@
                         <a href="{{ path('app_logout') }}">Déconnexion</a>
                     </li>
                 {% endif %}
+                <!-- menu principal -->
+                <li>
+                    <a href="{{ path('front_users_list') }}">Joueurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_structures_list') }}">Terrains</a>
+                </li>
+                <li>
+                    <a href="{{ path('front_rules') }}">Règles de jeu</a>
+                </li>
             </ul>
-        </nav>
+            <div id="overlay"></div>
+        </navresp>
     </header>
     {# je fais apparaitre les messages flash s'il y en a #}
     {% for message in app.flashes('success') %}
@@ -99,7 +163,7 @@
     <footer class="colorBackground">
         <!-- menu footer -->
         <nav>
-            <ul class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
+            <ul class="xLarge-2 large-2 medium-12 small-12 xSmall-12 p1">
                 <li>
                     <a href="{{ path('front_users_list') }}">Joueurs</a>
                 </li>
@@ -110,12 +174,12 @@
                     <a href="{{ path('front_rules') }}">Règles de jeu</a>
                 </li>
             </ul>
-            <div class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
+            <div class="xLarge-2 large-2 medium-3 small-3 xSmall-3 p1">
                 <a href="{{ path('home') }}">
                     <img src="{{ asset('img/logofondblanc.jpg') }}" alt="logo du site Padel33" class="logo">
                 </a>
             </div>
-            <ul class="xLarge-2 large-2 medium-2 small-2 xSmall-2 p1">
+            <ul class="xLarge-2 large-2 medium-12 small-12 xSmall-12 p1">
                 <li>
                     <a href="{{ path('front_contact') }}">Contact / A propos</a>
                 </li>
@@ -134,5 +198,6 @@
             </ul>
         </nav>
     </footer>
+    <script src="{{ asset('src/js/app.js') }}"></script>
 </body>
 </html>

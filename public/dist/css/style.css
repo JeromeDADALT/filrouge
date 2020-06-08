@@ -296,12 +296,53 @@ tout en gérant le responsive via les media queries */
     display: flex;
   }
 
+  .pL {
+    padding-left: 50%;
+  }
+
   nav ul {
     visibility: hidden;
   }
 
+  header nav ul span {
+    visibility: visible;
+  }
+
+  footer nav ul, header nav ul.visible {
+    visibility: visible !important;
+  }
+
+  footer ul {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 28px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  .visible {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .width30 {
+    width: 60% !important;
+  }
+
+  .listNav {
+    display: none;
+  }
+
   .center {
     flex-wrap: wrap;
+  }
+
+  .searchPlayer {
+    width: 75% !important;
   }
 
   .frameStructure:hover {
@@ -366,10 +407,27 @@ tout en gérant le responsive via les media queries */
 
   #burger {
     display: flex;
+    margin: 0 35px;
+  }
+
+  .pL {
+    padding-left: 30%;
   }
 
   nav ul {
     visibility: hidden;
+  }
+
+  header nav ul span {
+    visibility: visible;
+  }
+
+  footer nav ul, header nav ul.visible {
+    visibility: visible !important;
+  }
+
+  footer ul {
+    text-align: center;
   }
 
   p, a, li, input, button, textarea, span {
@@ -378,8 +436,33 @@ tout en gérant le responsive via les media queries */
     text-decoration: none;
   }
 
+  h1 {
+    font-size: 28px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  .visible {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .width30 {
+    width: 60% !important;
+  }
+
+  .listNav {
+    display: none;
+  }
+
   .center {
     flex-wrap: wrap;
+  }
+
+  .searchPlayer {
+    width: 90% !important;
   }
 
   .frameStructure:hover {
@@ -444,10 +527,27 @@ tout en gérant le responsive via les media queries */
 
   #burger {
     display: flex;
+    margin: 0 35px;
+  }
+
+  .pL {
+    padding-left: 30%;
   }
 
   nav ul {
     visibility: hidden;
+  }
+
+  header nav ul span {
+    visibility: visible;
+  }
+
+  footer nav ul, header nav ul.visible {
+    visibility: visible !important;
+  }
+
+  footer ul {
+    text-align: center;
   }
 
   p, a, li, input, button, textarea, span {
@@ -456,8 +556,33 @@ tout en gérant le responsive via les media queries */
     text-decoration: none;
   }
 
+  h1 {
+    font-size: 28px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  .visible {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .width30 {
+    width: 60% !important;
+  }
+
+  .listNav {
+    display: none;
+  }
+
   .center {
     flex-wrap: wrap;
+  }
+
+  .searchPlayer {
+    width: 90% !important;
   }
 
   .frameStructure:hover {
@@ -520,6 +645,11 @@ tout en gérant le responsive via les media queries */
   padding-top: 3%;
 }
 
+.ptl1 {
+  padding-top: 1%;
+  padding-left: 1%;
+}
+
 .marg3 {
   margin: 3%;
 }
@@ -528,8 +658,21 @@ tout en gérant le responsive via les media queries */
   margin: 1%;
 }
 
+.margB3 {
+  margin-bottom: 3%;
+}
+
+.margTB3 {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
 .margL3 {
   margin-left: 3%;
+}
+
+.margL5 {
+  margin-left: 5%;
 }
 
 .colorLB {
@@ -581,6 +724,10 @@ tout en gérant le responsive via les media queries */
   align-items: center;
 }
 
+.textCenter {
+  text-align: center;
+}
+
 /* header, footer */
 header {
   display: flex;
@@ -617,11 +764,7 @@ header nav ul {
 }
 
 .navHome {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .listNav {
@@ -662,6 +805,10 @@ div.flashes {
 
 .colorBackgroundForm {
   background-color: aliceblue;
+}
+
+.hidden {
+  display: none;
 }
 
 #user_photo {
@@ -816,14 +963,14 @@ navresp {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #2249AB;
+  background-color: #4A7BF7;
   opacity: 0;
   visibility: hidden;
   transition: all linear 0.2s;
 }
 
 navresp ul {
-  background-color: #4A7BF7;
+  background-color: #2249AB;
   padding: 20px;
   position: absolute;
   z-index: 2;
@@ -864,7 +1011,7 @@ navresp ul li a {
 
 .display_menuResp #overlay {
   visibility: visible !important;
-  opacity: 1 !important;
+  opacity: 0.8 !important;
 }
 
 /*# sourceMappingURL=style.css.map */

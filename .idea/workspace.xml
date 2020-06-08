@@ -2,47 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9652cec5-5d70-4e25-a7b3-c2703475f103" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/dist/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dist/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/dist/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/dist/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logofondblanc.JPG" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logofondblanc.JPG" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logofondblanc.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/src/sass/_responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/sass/_responsive.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/src/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/DashboardController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/DashboardController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/StructureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/StructureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/admin/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/admin/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/front/StructureController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/front/StructureController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/front/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/front/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/FilterType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/FilterType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/DayRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/DayRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/HourRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/HourRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/LevelRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/LevelRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/StructureRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/StructureRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/common/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/structure/insert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/insert.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/structure/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/structure/structure.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/structure.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/structure/structures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/structures.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/structure/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/user/filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/filter.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/user/insert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/insert.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/user/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/user/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/user/user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/user.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/user/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/users.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/common/base.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/common/baseHome.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/common/baseHome.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/contact.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/contact.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/legality.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/legality.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/rules.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/rules.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/security/login.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/structure/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/structure/search.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/structure/structures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/structure/structures.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/user/filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/user/filter.html.twig" afterDir="false" />
@@ -189,7 +157,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/front/user" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
@@ -218,7 +186,9 @@
       <option name="presentableId" value="Default" />
       <updated>1586089737588</updated>
       <workItem from="1586089739141" duration="35461000" />
-      <workItem from="1586624200039" duration="301314000" />
+      <workItem from="1586624200039" duration="301420000" />
+      <workItem from="1591474163761" duration="172000" />
+      <workItem from="1591515780730" duration="35788000" />
     </task>
     <servers />
   </component>
@@ -230,6 +200,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="424" y="251" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.877@0.23.1440.877" timestamp="1589121928481" />
+    <state x="396" y="176" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1591474123043">
+      <screen x="0" y="23" width="1440" height="877" />
+    </state>
+    <state x="396" y="176" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.23.1440.877@0.23.1440.877" timestamp="1591474123043" />
     <state x="436" y="23" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1589121278879">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
@@ -246,10 +220,10 @@
       <screen x="0" y="23" width="1440" height="877" />
     </state>
     <state x="203" y="80" key="SettingsEditor/0.23.1440.877@0.23.1440.877" timestamp="1589822452659" />
-    <state x="406" y="283" key="com.intellij.ide.util.TipDialog" timestamp="1586630394851">
+    <state x="406" y="283" key="com.intellij.ide.util.TipDialog" timestamp="1591515782433">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
-    <state x="406" y="283" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1586630394851" />
+    <state x="406" y="283" key="com.intellij.ide.util.TipDialog/0.23.1440.877@0.23.1440.877" timestamp="1591515782433" />
     <state x="374" y="77" width="639" height="729" key="find.popup" timestamp="1589117680463">
       <screen x="0" y="23" width="1440" height="877" />
     </state>
