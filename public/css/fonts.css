@@ -1,0 +1,58 @@
+/*je déclare ici les polices utilisées aprés les avoir transformées puis téléchargées aux formats woff et woff2
+afin qu'elles soient adaptatives et resposives */
+
+@font-face {
+    font-family: 'varela_round';
+    src: url('../../fonts/varelaround/varelaround-regular-webfont.woff2') format('woff2'),
+    url('../../fonts/varelaround/varelaround-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'cambay';
+    src: url('../../fonts/cambay/cambay-bold-webfont.woff2') format('woff2'),
+    url('../../fonts/cambay/cambay-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'saira_medium';
+    src: url('../../fonts/saira/saira-medium-webfont.woff2') format('woff2'),
+    url('../../fonts/saira/saira-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'saira_regular';
+    src: url('../../fonts/saira/saira-regular-webfont.woff2') format('woff2'),
+    url('../../fonts/saira/saira-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hindmadurai_medium';
+    src: url('../../fonts/hindmadurai/hindmadurai-medium-webfont.woff2') format('woff2'),
+    url('../../fonts/hindmadurai/hindmadurai-medium-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hindmadurai_regular';
+    src: url('../../fonts/hindmadurai/hindmadurai-regular-webfont.woff2') format('woff2'),
+    url('../../fonts/hindmadurai/hindmadurai-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'hindmadurai_semibold';
+    src: url('../../fonts/hindmadurai/hindmadurai-semibold-webfont.woff2') format('woff2'),
+    url('../../fonts/hindmadurai/hindmadurai-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -5,6 +5,7 @@
 {% block user %}
     <main class="p3">
         <h1 class="colorLB">Recherche de joueurs</h1>
+        {# résultats de la recherche #}
         <section class="ptb1">
             {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
             {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}

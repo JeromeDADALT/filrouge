@@ -8,28 +8,25 @@
     <div>
         <form method="get" action="{{ path('admin_structure_search') }}">
             <p>Recherche par nom ou ville</p>
-            <input type="text" name="word" placeholder="Entrez un nom ou une ville">
-            <button type="submit">Rechercher</button>
+            <div class="d-flex justify-content-center">
+                <input type="text" name="word" placeholder="Entrez un nom ou une ville" class="col-5">
+                <button type="submit">Rechercher</button>
+            </div>
         </form>
     </div>
     <h2>Résultat(s) de la recherche sur le nom ou la ville : {{ word }}</h2>
-    <main>
-        <div>
-            <a href="{{ path('admin_insert_structure') }}">Ajouter une structure</a>
-        </div>
+    <a href="{{ path('admin_insert_structure') }}">
+        <h2>Ajouter une structure</h2>
+    </a>
+    <main class="d-flex justify-content-center m-3">
             {% for structure in structures %}
-                <div>
-                    <h3>{{ structure.nameStructure }}</h3>
-                    <p>Ville : {{ structure.cityStructure }}</p>
-                    <div>
-                        <a href="{{ path('admin_show_structure', {'id' : structure.id}) }}">Voir la fiche de la structure</a>
-                    </div>
-                    <div>
-                        <a href="{{ path('admin_update_structure', {'id' : structure.id}) }}">Modifier cette structure</a>
-                    </div>
-                    <div>
-                        <a href="{{ path('admin_delete_structure', {'id' : structure.id}) }}">Supprimer cette structure</a>
-                    </div>
+                <div class="d-flex col-3 flex-column justify-content-center align-items-center p-3 m-3 blueBorder">
+                    <a href="{{ path ('admin_show_structure', {'id' : structure.id }) }}">
+                        <h2>{{ structure.nameStructure }}</h2>
+                    </a>
+                    <p>{{ structure.cityStructure }}</p>
+                    <a href="{{ path('admin_update_structure', {'id' : structure.id}) }}" class="size16">Modifier</a>
+                    <a href="{{ path('admin_delete_structure', {'id' : structure.id}) }}" class="size16">Supprimer</a>
                 </div>
             {% else %}
                 <p>Il n'y a pas de résultat pour cette recherche</p>

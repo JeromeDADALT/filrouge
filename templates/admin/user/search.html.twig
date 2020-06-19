@@ -4,37 +4,34 @@
 
 {% block user %}
     <h1>Liste des joueurs membres de la communauté</h1>
+    {# Recherche mot-clé #}
     <div>
-        {# Recherche mot-clé #}
         <form method="get" action="{{ path('admin_user_search') }}">
-            <p>Recherche par prénom ou email</p>
-            <input type="text" name="word" placeholder="Entrez un prénom ou un email">
-            <button type="submit">Rechercher</button>
+            <h3>Recherche par prénom ou email</h3>
+            <div class="d-flex justify-content-center">
+                <input type="text" name="word" placeholder="Entrez un prénom ou un email" class="col-4">
+                <button type="submit">Rechercher</button>
+            </div>
         </form>
     </div>
     <h2>Résultat(s) de la recherche sur le prénom ou l'email : {{ word }}</h2>
     {# Résultats recherche mot-clé #}
-    <main>
+    <main class="d-flex flex-wrap justify-content-around align-items-center m-3">
         {# j'ajoute le filtre sort pour avoir la liste des résultats par ordre alphabétique#}
         {% for user in users|sort((a, b) => a.firstName <=> b.firstName) %}
-            <div>
-                <h3>
-                    <a href="{{ path ('admin_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
-                </h3>
-                <p>Email : {{ user.email }}</p>
-                <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
-                <div>
-                    <a href="{{ path('admin_update_user', {'id' : user.id}) }}">Modifier cet utilisateur</a>
-                </div>
-                <div>
-                    <a href="{{ path('admin_delete_user', {'id' : user.id}) }}">Supprimer cet utilisateur</a>
-                </div>
+            <div class="d-flex col-3 flex-column justify-content-center align-items-center p-3 m-3 blueBorder">
+                <a href="{{ path ('admin_show_user', {'id' : user.id }) }}">
+                    <h2>{{ user.firstName }}</h2>
+                </a>
+                <p>{{ user.email }}</p>
+                <a href="{{ path('admin_update_user', {'id' : user.id}) }}" class="size16">Modifier</a>
+                <a href="{{ path('admin_delete_user', {'id' : user.id}) }}" class="size16">Supprimer</a>
             </div>
         {% else %}
             <p>Il n'y a pas de résultat pour cette recherche</p>
         {% endfor %}
-        <div>
-            <a href="{{ path('admin_insert_user') }}">Ajouter un utilisateur</a>
-        </div>
     </main>
+    <a href="{{ path('admin_insert_user') }}">
+        <h2>Ajouter un utilisateur</h2>
+    </a>
 {% endblock %}

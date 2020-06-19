@@ -33,11 +33,6 @@ button {
   margin: 1px;
 }
 
-.firstName {
-  font-family: 'cambay', sans-serif;
-  font-size: 36px;
-}
-
 ul {
   padding: 0;
 }
@@ -58,6 +53,11 @@ a:hover {
 button:hover {
   color: #6FAB11;
   border: solid 2px #6FAB11;
+}
+
+.firstName {
+  font-family: 'cambay', sans-serif;
+  font-size: 36px;
 }
 
 ::-webkit-scrollbar {

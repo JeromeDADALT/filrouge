@@ -79,11 +79,6 @@ button {
   margin: 1px;
 }
 
-.firstName {
-  font-family: "cambay", sans-serif;
-  font-size: 36px;
-}
-
 ul {
   padding: 0;
 }
@@ -106,6 +101,33 @@ button:hover {
   border: solid 2px #6FAB11;
 }
 
+.firstName {
+  font-family: "cambay", sans-serif;
+  font-size: 36px;
+}
+
+/*
+.relative {
+  position: relative;
+}
+
+.backgroundImage {
+  position: absolute;
+  z-index: 1;
+  height: auto;
+  width: 100%;
+  background-image: url("../../img/imageAccueil.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.1;
+}
+
+.z2 {
+  position: absolute;
+  z-index: 2;
+}
+*/
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;

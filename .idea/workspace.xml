@@ -2,23 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9652cec5-5d70-4e25-a7b3-c2703475f103" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/filrouge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/filrouge.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/dist/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/dist/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/dist/css/style.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/public/dist/css/style.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/src/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/src/sass/_responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/sass/_responsive.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/src/sass/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/sass/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/common/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/common/baseHome.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/common/baseHome.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/structure/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/structure/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/structure/structures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/structure/structures.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/logofondnoir.JPG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/logofondnoir.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/next.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/prev.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/src/sass/_default.scss" beforeDir="false" afterPath="$PROJECT_DIR$/public/src/sass/_default.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/common/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/common/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/dashboard.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/insert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/insert.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/structure.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/structure.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/structures.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/structures.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/structure/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/structure/update.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user/filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/filter.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user/insert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/insert.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/search.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/update.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user/user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/user.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/user/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/user/users.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/front/user/filter.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/user/filter.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/user/insert.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/user/insert.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/user/search.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/user/search.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/user/update.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/user/update.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/user/user.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/user/user.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/front/user/users.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/front/user/users.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +196,7 @@
       <workItem from="1586089739141" duration="35461000" />
       <workItem from="1586624200039" duration="301420000" />
       <workItem from="1591474163761" duration="172000" />
-      <workItem from="1591515780730" duration="35788000" />
+      <workItem from="1591515780730" duration="66781000" />
     </task>
     <servers />
   </component>

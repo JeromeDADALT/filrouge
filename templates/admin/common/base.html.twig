@@ -18,80 +18,79 @@
     <meta name="keywords" content="Padel33 padel gironde recherche joueur">
     <title>{% block title %} {% endblock %}</title>
     <link rel="icon" type="image/png" href="{{ asset('img/faviconpadel.png') }}" />
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
-    <script src="{{ asset('src/js/app.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
 </head>
+
 <body>
-
-<header>
-    <nav>
-        <ul>
-            <li>
-                <a href="{{ path('home') }}">Accueil front office</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_user_filter') }}">Recherche de joueurs</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_structures_list') }}">Liste des structures</a>
-            </li>
-            <!--j'ajoute une condition pour faire apparaitre Déconnexion si l'utilisateur est connecté-->
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <header class="blueBackground">
+        <nav class="p-3">
+            <ul class="d-flex justify-content-around p-2 m-2">
                 <li>
-                    <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    <a href="{{ path('home') }}">Accueil front office</a>
                 </li>
-            {% endif %}
-        </ul>
-    </nav>
-</header>
-{# je fais apparaitre les messages flash s'il y en a #}
-{% for message in app.flashes('success') %}
-    <div class="flashes">
-        {{ message }}
-    </div>
-{% endfor %}
+                <li>
+                    <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_user_filter') }}">Recherche de joueurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_structures_list') }}">Liste des structures</a>
+                </li>
+                <!--j'ajoute une condition pour faire apparaitre Déconnexion si l'utilisateur est connecté-->
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li>
+                        <a href="{{ path('app_logout') }}">Déconnexion</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    </header>
+    {# je fais apparaitre les messages flash s'il y en a #}
+    {% for message in app.flashes('success') %}
+        <div class="flashes">
+            {{ message }}
+        </div>
+    {% endfor %}
 
-<!--je crée des blocks que je vais pouvoir inclure dans les fichiers twig pour isoler et pouvoir travailler sur des parties-->
-{% block body %}
-{% endblock %}
+    <!--je crée des blocks que je vais pouvoir inclure dans les fichiers twig pour isoler et pouvoir travailler sur des parties-->
+    {% block body %}
+    {% endblock %}
 
-{% block user %}
-{% endblock %}
+    {% block user %}
+    {% endblock %}
 
-{% block structure %}
-{% endblock %}
+    {% block structure %}
+    {% endblock %}
 
-<footer>
-    <nav>
-        <ul>
-            <li>
-                <a href="{{ path('home') }}">Accueil front office</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_user_filter') }}">Recherche de joueurs</a>
-            </li>
-            <li>
-                <a href="{{ path('admin_structures_list') }}">Liste des structures</a>
-            </li>
-        </ul>
-    </nav>
-</footer>
-
+    <footer class="blueBackground">
+        <nav class="p-3">
+            <ul class="d-flex justify-content-around p-2 m-2">
+                <li>
+                    <a href="{{ path('home') }}">Accueil front office</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_dashboard') }}">Accueil back office</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_users_list') }}">Liste des joueurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_user_filter') }}">Recherche de joueurs</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_structures_list') }}">Liste des structures</a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
 </body>
 </html>

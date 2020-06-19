@@ -4,31 +4,30 @@
 
 {% block body %}
     <h1>Bienvenue sur la page d'administration</h1>
-    <h2>
-        <a href="{{ path('admin_insert_user') }}">Ajouter un utilisateur</a>
-    </h2>
+    <a href="{{ path('admin_insert_user') }}">
+        <h2>Ajouter un utilisateur</h2>
+    </a>
     <h3>Les 3 derniers utilisateurs inscrits :</h3>
-    <main>
+    <main class="d-flex justify-content-around align-items-center m-3">
         {% for user in users %}
-            <div>
-                <h2>
-                    <a href="{{ path ('admin_show_user', {'id' : user.id }) }}">{{ user.firstName }}</a>
-                </h2>
-                <p>Email : {{ user.email }}</p>
-                <p>Compte actif (1=oui ; 0=non) : {{ user.enable }}</p>
+            <div class="col-3 blueBorder p-2">
+                <a href="{{ path ('admin_show_user', {'id' : user.id }) }}">
+                    <h2>{{ user.firstName }}</h2>
+                </a>
+                <p>{{ user.email }}</p>
             </div>
         {% endfor %}
     </main>
-    <h2>
-        <a href="{{ path('admin_insert_structure') }}">Ajouter une structure</a>
-    </h2>
+    <a href="{{ path('admin_insert_structure') }}">
+        <h2>Ajouter une structure</h2>
+    </a>
     <h3>Les 3 dernières structures ajoutées :</h3>
-    <main>
+    <main class="d-flex justify-content-around align-items-center m-3">
         {% for structure in structures %}
-            <div>
-                <h2>
-                    <a href="{{ path ('admin_show_structure', {'id' : structure.id }) }}">{{ structure.nameStructure }}</a>
-                </h2>
+            <div class="col-3 blueBorder p-2">
+                <a href="{{ path ('admin_show_structure', {'id' : structure.id }) }}">
+                    <h2>{{ structure.nameStructure }}</h2>
+                </a>
                 <p>{{ structure.cityStructure }}</p>
             </div>
         {% endfor %}
